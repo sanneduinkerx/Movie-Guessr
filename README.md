@@ -1,16 +1,16 @@
 # Real-Time Web @cmda-minor-web · 2020/21 - Movie Guessr
 
 ## Table of Contents
-- [Description 📋](#Description-)
-- [First Concept ✏️]()
-    - [Next steps]()
-    - [To Do]()
+- [Description 📋](#description-)
+- [First Concept ✏️](#first-concept-%EF%B8%8F)
+    - [Next steps](#next-steps)
+    - [To Do](#to-do)
 
 
 # Description 📋
 For the course Real Time Web, I'm making a Real Time web app, as the name says. I will learn to work with websockets and real time data with multiple users at client side. 
 
-## First Concept ✏️
+## Concept ✏️
 My idea is to make a Guessing game with movies. So there will be a chat available for the users to guess the movie. And my ultimate goal is that 1 user in the game room can see the movie poster and he/she types a hint, in total 3 hints. And the other users have to guess with the hints which movie it is. The hint can be an actor who plays in the movie, or a popular quote from the movie. Maybe later something with *firebase* to make rooms and all data.
 
 A little sketch: 
