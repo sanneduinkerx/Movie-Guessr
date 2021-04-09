@@ -1,18 +1,34 @@
-# Real-Time Web @cmda-minor-web · 2020/21
+# Real-Time Web @cmda-minor-web · 2020/21 - Movie Guessr
 
 ## Table of Contents
-- Concept
+- [Description 📋](#Description-)
+- [First Concept ✏️]()
+    - [Next steps]()
+    - [To Do]()
 
-## Description
+
+# Description 📋
 For the course Real Time Web, I'm making a Real Time web app, as the name says. I will learn to work with websockets and real time data with multiple users at client side. 
 
-### First Concept
-My idea for now is to make a Guessing game with movies. So there will be a chat available for the users too guess the movie. And my ultimate goal is dat 1 user in the game room can see the movie poster and he/she types a hint, in total 3 hints. And the other users have to guess with the hints which movie it is. The hint can be an actor who plays in the movie, or a popular quote from the movie. 
+## First Concept ✏️
+My idea is to make a Guessing game with movies. So there will be a chat available for the users to guess the movie. And my ultimate goal is that 1 user in the game room can see the movie poster and he/she types a hint, in total 3 hints. And the other users have to guess with the hints which movie it is. The hint can be an actor who plays in the movie, or a popular quote from the movie. Maybe later something with *firebase* to make rooms and all data.
 
-A little sketch for now: 
+A little sketch: 
+
+![](https://user-images.githubusercontent.com/60745348/114186180-d548a380-9946-11eb-8cd1-b3b4dd5c6f0b.png)
 
 
+### Next steps:
+My first step is to make **the chat** work so that I understand the websocket. And then to get data from an API, maybe IMDb or ThemovieDB. And load some data into the web app. After that i can begin adding more function to it if the main features work. Maybe first i will start with just a scene from a movie as image for all users to see and then everyone can guess from which movie it is. And if that works i can make it bigger.
 
+First step sketch:
+
+![](https://user-images.githubusercontent.com/60745348/114186198-d974c100-9946-11eb-8d00-c10d029861af.png)
+
+### To Do:
+- [ ] Chat function working
+- [ ] Use insomnia to see how the API is structured
+- [ ] Load API data in web app
 
 
 <!-- Here are some hints for your project! -->
