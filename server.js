@@ -6,6 +6,7 @@ const app = express();
 const http = require('http').createServer(app);
 const path = require('path');
 
+//use ejs again is nicer
 app.use(express.static(path.resolve('public')))
 
 app.get('/', (request, response) => {
