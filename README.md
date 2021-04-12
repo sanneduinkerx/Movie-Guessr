@@ -25,9 +25,13 @@ A little sketch:
 ![](https://user-images.githubusercontent.com/60745348/114186180-d548a380-9946-11eb-8cd1-b3b4dd5c6f0b.png)
 
 **Other concepts I had:**
-- One user gives emojis instead of hints as hints
-- Just a scene from a movie or poster cover blurred and everyone guesses which movie it is
-- Completely different: Shared booklist, everyone can give their review on the book they read, others can read the review
+- User gives emojis instead of hints, as hints so other users can guess the movie
+- Just a scene from a movie or poster cover blurred and everyone guesses which movie it is, no different roles or turns
+- *Completely different:* Shared booklist, everyone can give their review on the book they read, others can read the review
+
+**Chosen Concept:**
+I chose the *movie Guessr with hints*, because i think it'll be a nice concept to work on, especially the game feature with multiple users. And there are multiple roles within the game 
+which is a little challenge for me and i thought that would be interesting. And because i'm a fan of movies, and know where most actors play in or famous phrases, i thought the hints would be nice as a feature.
 
 ### Features 🛠
 - **Chat** function, so all users can guess which movie is described with given hints from 1 user
@@ -86,7 +90,7 @@ The npm packages i will use in this project:
 - Express: 
     A web framework with feature for routing. And supports template engines such as EJS. for more info [click here](https://www.npmjs.com/package/express)
 - Node-fetch: 
-    to use fetch(url) to fetch data from lastFM API.
+    to use fetch(url) to fetch data from API.
 
 ## Next steps: 🐾
 My first step is to make **the chat** work so that I understand the websocket. And then to get data from an API, maybe IMDb or ThemovieDB. And load some data into the web app. After that i can begin adding more function to it if the main features work. Maybe first i will start with just a scene from a movie as image for all users to see and then everyone can guess from which movie it is. And if that works i can add more of the features from the ultimate concept.
@@ -100,7 +104,6 @@ First step sketch:
 - [ ] Use insomnia to see how the API is structured
 - [ ] Load API data in web app
 - [ ] Data Life cycle
-
 
 ## Sources 📚
 Sources I used in this course 
