@@ -1,0 +1,73 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+/****************/
+/* GRID LAYOUT */
+/**************/
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 500px;
+}
+
+/*******************/
+/* CHAT INTERFACE */
+/*******************/
+
+main section:nth-of-type(2){
+    background-color: rgb(199, 199, 199);
+    height: 90vh;
+}
+
+main section:nth-of-type(2) ul li{
+    background-color: white;
+    border-radius: 10px;
+    max-width: 350px;
+    padding: 1em;
+    list-style: none;
+}
+
+main section:nth-of-type(2) ul{
+    padding: 1em;
+}
+
+/* BUTTON */
+
+main section:nth-of-type(2) button {
+    background-color: rgb(197, 58, 81);
+    color: white;
+    border: none;
+    border-radius: 100%;
+    padding: 1em;
+    text-align: center;
+    transition: .5s ease;
+}
+
+main section:nth-of-type(2) button img{
+    width: 25px;
+    height: 25px;
+    margin: auto;
+}
+
+main section:nth-of-type(2) button:hover, main section:nth-of-type(2) button:focus  {
+    background-color: rgb(179, 98, 111);
+    cursor: pointer;
+}
+
+/* FORM */
+
+main section:nth-of-type(2) form{
+    display: flex;
+    justify-content: space-around;
+}
+
+main section:nth-of-type(2) input{
+    padding: 1em;
+    border-radius: 20px;
+    outline: none;
+    border: solid 1.5px rgb(197, 58, 81);
+    width: 100%;
+}
+
