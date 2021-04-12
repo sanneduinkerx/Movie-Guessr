@@ -1,3 +1,4 @@
+// source: https://github.com/ju5tu5/barebonechat, followed lecture example 
 const express = require('express');
 const app = express();
 
@@ -14,7 +15,16 @@ app.use(express.static(path.resolve('public')));
 // the parameter socket is given with the function
 io.on('connection', (socket) => {
     console.log('User connected');
-    // connection opened, then you can use eventlisteners
+
+    // connection opened, then you can listen to events
+    // self named event, message from client side
+    // event is given in parameter in nameless function
+    socket.on('message', (message) => {
+        console.log(`Message: ${message}`); 
+        //io emit to SEND the message back to all clients that have browser open
+        io.emit('message', message);
+    })
+
     // for example when user disconnects
     socket.on('disconnect', () => {
         console.log('User disconnected');

@@ -27,10 +27,12 @@ main section:nth-of-type(2) ul li{
     max-width: 350px;
     padding: 1em;
     list-style: none;
+    margin: 1em;
 }
 
 main section:nth-of-type(2) ul{
     padding: 1em;
+    max-height: 
 }
 
 /* BUTTON */
