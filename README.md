@@ -24,10 +24,10 @@ A little sketch:
 
 ![](https://user-images.githubusercontent.com/60745348/114186180-d548a380-9946-11eb-8cd1-b3b4dd5c6f0b.png)
 
-Other concepts:
-- With smileys instead of hints
-- Drawing instead of hints
-- Or just a scene from a movie and everyone guesses
+**Other concepts I had:**
+- One user gives emojis instead of hints as hints
+- Just a scene from a movie or poster cover blurred and everyone guesses which movie it is
+- Completely different: Shared booklist, everyone can give their review on the book they read, others can read the review
 
 ### Features 🛠
 - **Chat** function, so all users can guess which movie is described with given hints from 1 user
