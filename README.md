@@ -5,7 +5,9 @@
 - [Concept ✏️](#concept---movie-guessr-%EF%B8%8F)
     - [Features 🛠](#features-)
     - [Live Link 🔗](#live-link-)
+    - [Data Life Cycle](#Data-life-cycle)
 - [API 🍿](#api-)
+    -[Data Model](#data-model)
 - [How to Install ⬇️](#how-to-install-this-project-%EF%B8%8F)
 - [npm Packages 📦](#how-to-install-this-project-%EF%B8%8F)
 - [Next steps 🐾](#next-steps-)
@@ -22,6 +24,11 @@ A little sketch:
 
 ![](https://user-images.githubusercontent.com/60745348/114186180-d548a380-9946-11eb-8cd1-b3b4dd5c6f0b.png)
 
+Other concepts:
+- With smileys instead of hints
+- Drawing instead of hints
+- Or just a scene from a movie and everyone guesses
+
 ### Features 🛠
 - **Chat** function, so all users can guess which movie is described with given hints from 1 user
 - **Hints**, 1 user can give 3 hints with input field
@@ -31,8 +38,15 @@ A little sketch:
 ### Live Link 🔗
 No link available yet. 
 
+### Data Life cycle
+No life cycle yet, more will follow.
+
 ## API 🍿
 No API used yet, more info will follow.
+
+### Data Model
+
+No model yet
 
 ## How to install this project ⬇️
 
@@ -85,6 +99,7 @@ First step sketch:
 - [ ] Chat function working
 - [ ] Use insomnia to see how the API is structured
 - [ ] Load API data in web app
+- [ ] Data Life cycle
 
 
 ## Sources 📚
