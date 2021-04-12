@@ -7,7 +7,7 @@
     - [Live Link 🔗](#live-link-)
     - [Data Life Cycle](#Data-life-cycle)
 - [API 🍿](#api-)
-    -[Data Model](#data-model)
+    - [Data Model](#data-model)
 - [How to Install ⬇️](#how-to-install-this-project-%EF%B8%8F)
 - [npm Packages 📦](#how-to-install-this-project-%EF%B8%8F)
 - [Next steps 🐾](#next-steps-)
