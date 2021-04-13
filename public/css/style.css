@@ -3,11 +3,23 @@ body {
     margin: 0;
 }
 
+/********************************/
+/*----------- HOME ------------*/
+/******************************/
+
+.home main section:first-of-type{
+    text-align: center;
+}
+
+/********************************/
+/*----------- GAME ------------*/
+/******************************/
+
 /****************/
 /* GRID LAYOUT */
 /**************/
 
-main {
+.game main {
     display: grid;
     grid-template-columns: 1fr 500px;
 }
@@ -16,16 +28,18 @@ main {
 /* CHAT INTERFACE */
 /*******************/
 
-main section:nth-of-type(2){
+.game main section:nth-of-type(2){
     background-color: rgb(199, 199, 199);
-    height: 90vh;
+    height: 85vh;
+    border-radius: 10px 0px 0px 10px;
+    position: relative;
 }
 
-main section:nth-of-type(2) h2{
+.game main section:nth-of-type(2) h2{
     text-align: center;
 }
 
-main section:nth-of-type(2) ul li{
+.game main section:nth-of-type(2) ul li{
     background-color: white;
     border-radius: 10px;
     max-width: 350px;
@@ -34,46 +48,52 @@ main section:nth-of-type(2) ul li{
     margin: 1em auto;
 }
 
-main section:nth-of-type(2) ul{
+.game main section:nth-of-type(2) ul{
     padding: 1em;
-    max-height: ;
+    height: 70vh;
+    overflow-y: scroll;
+}
+
+/* FORM */
+
+.game main section:nth-of-type(2) form{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.game main section:nth-of-type(2) input{
+    padding: 1em;
+    border-radius: 10px;
+    outline: none;
+    border: solid 1.5px rgb(197, 58, 81);
+    width: 100%;
 }
 
 /* BUTTON */
 
-main section:nth-of-type(2) button {
-    background-color: rgb(197, 58, 81);
+.game main section:nth-of-type(2) button {
+    background-color: rgb(203, 49, 75);
     color: white;
     border: none;
-    border-radius: 100%;
+    border-radius: 0px 10px 10px 0px;
     padding: 1em;
+    margin: 0em 0em 0em -1em ;
     text-align: center;
     transition: .5s ease;
 }
 
-main section:nth-of-type(2) button img{
+.game main section:nth-of-type(2) button img{
     width: 25px;
     height: 25px;
     margin: auto;
 }
 
-main section:nth-of-type(2) button:hover, main section:nth-of-type(2) button:focus  {
+.game main section:nth-of-type(2) button:hover, main section:nth-of-type(2) button:focus  {
     background-color: rgb(179, 98, 111);
     cursor: pointer;
-}
-
-/* FORM */
-
-main section:nth-of-type(2) form{
-    display: flex;
-    justify-content: space-around;
-}
-
-main section:nth-of-type(2) input{
-    padding: 1em;
-    border-radius: 20px;
-    outline: none;
-    border: solid 1.5px rgb(197, 58, 81);
-    width: 100%;
 }
 
