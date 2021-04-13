@@ -109,8 +109,6 @@ First step sketch:
 - [ ] Data api model
 - [ ] Load API data in web app
 - [ ] Deploy on heroku
-- [ ] Data Life cycle
-
 
 ## Sources 📚
 Sources I used in this course 
