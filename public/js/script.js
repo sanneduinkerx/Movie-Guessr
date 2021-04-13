@@ -13,7 +13,7 @@ form.addEventListener('submit', (e) => {
     //if the input has a value, so if the user types and sends a message then execute function
     if(input.value){
         //emit: uitsturen
-        // invented event named message and give the input.value with it that the user from client side submits
+        // event named message and give the input.value with it that the user from client side submits
         socket.emit('message', input.value);
         //empty input field
         input.value = '';

@@ -104,7 +104,7 @@ First step sketch:
 ![](https://user-images.githubusercontent.com/60745348/114186198-d974c100-9946-11eb-8d00-c10d029861af.png)
 
 ### To Do:
-- [ ] Chat function working
+- [X] Chat function working
 - [ ] Use insomnia to see how the API is structured
 - [ ] Data api model
 - [ ] Load API data in web app

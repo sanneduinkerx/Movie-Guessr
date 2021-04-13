@@ -50,7 +50,7 @@ body {
 
 .game main section:nth-of-type(2) ul{
     padding: 1em;
-    height: 70vh;
+    height: 65vh;
     overflow-y: scroll;
 }
 
