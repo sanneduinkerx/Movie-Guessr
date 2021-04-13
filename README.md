@@ -5,7 +5,7 @@
 - [Concept ✏️](#concept---movie-guessr-%EF%B8%8F)
     - [Features 🛠](#features-)
     - [Live Link 🔗](#live-link-)
-    - [Data Life Cycle](#Data-life-cycle)
+    - [Data Life Cycle](#Data-flow)
 - [API 🍿](#api-)
     - [Data Model](#data-model)
 - [How to Install ⬇️](#how-to-install-this-project-%EF%B8%8F)
@@ -42,8 +42,12 @@ which is a little challenge for me and i thought that would be interesting. And 
 ### Live Link 🔗
 No link available yet. 
 
-### Data Life cycle
-No life cycle yet, more will follow.
+### Data Flow
+
+First version:
+
+![](https://user-images.githubusercontent.com/60745348/114559308-e148a400-9c6b-11eb-8da2-5780674a3610.png)
+
 
 ## API 🍿
 No API used yet, more info will follow.
