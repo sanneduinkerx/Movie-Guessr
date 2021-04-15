@@ -6,6 +6,7 @@ const app = express();
 //process listens to port with data from app
 const http = require('http').createServer(app);  // read into http
 const io = require('socket.io')(http); // read into (http)
+const port = process.env.PORT || 7070; 
 
 //looks in public folder for static files
 app.use(express.static('public'));
@@ -41,6 +42,6 @@ io.on('connection', (socket) => {
     })
 })
 
-http.listen(7070, () => {
-    console.log('listening on port 7070');
+http.listen(port, () => {
+    console.log(`listening on port ${port}`);
 }) 
