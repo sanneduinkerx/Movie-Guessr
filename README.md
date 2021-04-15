@@ -105,10 +105,11 @@ First step sketch:
 
 ### To Do:
 - [X] Chat function working
+- [X] Data lifecycle
+- [X] Deploy on heroku
 - [ ] Use insomnia to see how the API is structured
 - [ ] Data api model
 - [ ] Load API data in web app
-- [ ] Deploy on heroku
 
 ## Sources 📚
 Sources I used in this course 
