@@ -53,7 +53,7 @@ You can check out the application [here](movie-guessr-cmd.herokuapp.com/).
 
 #### Must have:
 - [ ] Chat function with name, guess correct movie
-- [ ] Loading API data from TheMovieDB, pick random movie poster from api
+- [X] Loading API data from TheMovieDB, pick random movie poster from api
 - [ ] Implement point system 
 
 #### Should have
@@ -163,7 +163,9 @@ First step sketch:
 ## Sources 📚
 Sources I used in this course 
 
-- No sources used yet, more will follow.
+- Math.Random() Mozilla- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
+- Example from Justus Sturkenboom - [Github](https://github.com/ju5tu5/barebonechat)
+- Cheatsheet Emit - [Socket.io](https://socket.io/docs/v3/emit-cheatsheet/index.html)
 
 ## License 🔒
 This repository is licensed as [MIT]() by © 2021 Sanne Duinker

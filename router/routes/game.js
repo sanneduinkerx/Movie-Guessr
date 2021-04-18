@@ -1,6 +1,7 @@
 // import fetch
 const fetch = require('node-fetch');
 
+// API REQUEST - different file later
 // variables for url API
 const endpoint = 'https://api.themoviedb.org/3/movie/top_rated?',
       key = process.env.KEY,
@@ -10,19 +11,32 @@ const endpoint = 'https://api.themoviedb.org/3/movie/top_rated?',
 
 const url = `${endpoint}api_key=${key}&language=${language}&page=${page}&region=${region}`;
 
-// fetching data from theMovieDB -> different file later?
+// fetching data from theMovieDB 
 async function fetchData(){
     const apiData = await fetch(url)
         .then(response => response.json())
+        // if the api request fails it will console.log an error
         .catch(err => console.log(err))
     // returns the fetched data
     return apiData;
 };
 
- // route game
+ // ROUTE GAME
 const game = async function (req, res){
     // fetching data from api in const
     const movieData = await fetchData();
+
+    // PICKING RANDOM OBJECT -> also in different file, no logic yet here whoops
+    // length objects fetched data
+    const length = movieData.results.length;
+
+    // function to get random number within range length of API
+    const randomNumber = function getRandomNumber(length){
+        return Math.floor(Math.random() * length);
+    }
+
+    // with function getRandomNumber, i can now pick one random object from results
+    const data = movieData.results[randomNumber(length)];
 
     //the (res) respond: renders ejs template home, from the view folder
     // giving certain api data back to display
@@ -30,9 +44,10 @@ const game = async function (req, res){
     // 1 is a backdrop -> which DOESNT SHOW THE TITLE if i go back to a simple game and just use a scene from the movie
     // the other one is the poster which most of them have titles, so this is for 1 user to see
     res.render('game', {
-        poster_path: movieData.results[9].poster_path,
-        title: movieData.results[9].title
+        poster_path: data.poster_path,
+        title: data.title
     });
 }
 
+// exporting the route game
 module.exports = game;
