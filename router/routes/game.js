@@ -44,7 +44,7 @@ const game = async function (req, res){
     // 1 is a backdrop -> which DOESNT SHOW THE TITLE if i go back to a simple game and just use a scene from the movie
     // the other one is the poster which most of them have titles, so this is for 1 user to see
     res.render('game', {
-        poster_path: data.poster_path,
+        poster_path: data.backdrop_path,
         title: data.title
     });
 }

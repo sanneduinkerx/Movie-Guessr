@@ -9,6 +9,8 @@ For the course Real Time Web, I'm making a Real Time web app, as the name says. 
     - [Features 🛠](#features-)
     - [Wishlist](#wishlist)
     - [Data Life Cycle](#data-life-cycle-)
+- [Next steps 🐾](#next-steps-)
+    - [To Do](#to-do)
 - [API 🍿](#api-)
     - [Data Model](#data-model)
     - [How to get api key](#how-to-get-api-Key)
@@ -17,8 +19,6 @@ For the course Real Time Web, I'm making a Real Time web app, as the name says. 
 - [npm Packages 📦](#how-to-install-this-project-%EF%B8%8F)
 - [Sources 📚](#sources-)
 
-<!-- - [Next steps 🐾](#next-steps-)
-    - [To Do](#to-do) -->
 
 ## Concept - Movie Guessr ✏️
 My idea is to make a Guessing game with movies. So there will be a chat available for the users to guess the movie. And my ultimate goal is that 1 user in the game room can see the movie poster and he/she types a hint, in total 3 hints, and the other users have to guess with the hints which movie it is. The hint can be an actor who plays in the movie, or a popular quote from the movie. Maybe later something with *firebase* to make rooms and all data.
@@ -74,6 +74,19 @@ First version:
 
 **Note**: I will make this a digital version, with colors + functions on the server side to show which functions are used. And later a database if i use one.
 
+## Next steps: 🐾
+My first step is to make **the chat** work so that I understand the websocket. And then to get data from an API, maybe IMDb or ThemovieDB. And load some data into the web app. After that i can begin adding more function to it if the main features work. Maybe first i will start with just a scene from a movie as image for all users to see and then everyone can guess from which movie it is. And if that works i can add more of the features from the ultimate concept.
+
+First step sketch:
+
+![](https://user-images.githubusercontent.com/60745348/114186198-d974c100-9946-11eb-8d00-c10d029861af.png)
+
+### To Do:
+- [X] Chat function working
+- [X] Data lifecycle
+- [X] Deploy on heroku
+- [X] Use insomnia to see how the API is structured
+- [X] Load API data in web app
 
 ## API 🍿
 The API i use within this project is from [The MovieDB](https://developers.themoviedb.org/3/getting-started/introduction). This API has a wide range of get methodes to get data. You can request methodes from movies, tv shows, tv seasons or people. I chose to get requests from movies. The MovieDB has different GET methodes to use, for example:
@@ -145,20 +158,6 @@ The npm packages i will use in this project:
     A web framework with feature for routing. And supports template engines such as EJS. for more info [click here](https://www.npmjs.com/package/express)
 - Node-fetch: 
     to use fetch(url) to fetch data from API.
-
-<!-- ## Next steps: 🐾
-My first step is to make **the chat** work so that I understand the websocket. And then to get data from an API, maybe IMDb or ThemovieDB. And load some data into the web app. After that i can begin adding more function to it if the main features work. Maybe first i will start with just a scene from a movie as image for all users to see and then everyone can guess from which movie it is. And if that works i can add more of the features from the ultimate concept.
-
-First step sketch:
-
-![](https://user-images.githubusercontent.com/60745348/114186198-d974c100-9946-11eb-8d00-c10d029861af.png)
-
-### To Do:
-- [X] Chat function working
-- [X] Data lifecycle
-- [X] Deploy on heroku
-- [X] Use insomnia to see how the API is structured
-- [ ] Load API data in web app -->
 
 ## Sources 📚
 Sources I used in this course 
