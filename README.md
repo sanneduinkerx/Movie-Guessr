@@ -72,6 +72,8 @@ First version:
 
 ![](https://user-images.githubusercontent.com/60745348/114559308-e148a400-9c6b-11eb-8da2-5780674a3610.png)
 
+**Note**: I will make this a digital version, with colors + functions on the server side to show which functions are used. And later a database if i use one.
+
 
 ## API 🍿
 The API i use within this project is from [The MovieDB](https://developers.themoviedb.org/3/getting-started/introduction). This API has a wide range of get methodes to get data. You can request methodes from movies, tv shows, tv seasons or people. I chose to get requests from movies. The MovieDB has different GET methodes to use, for example:
@@ -96,7 +98,6 @@ The data looks like this:
 To get an API key you have to register for an account first. Then in your account click API in the left sidebar, then click create and choose for what you are gonna use the API and then you can fill in the form for an API request. After that you can immediately use the API key. 
 
 ## Real Time Events 💬
-
 Real Time events i used with socket.io are:
 
 - Message, to send and receive messages for all clients.
