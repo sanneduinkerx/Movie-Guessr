@@ -97,7 +97,13 @@ To get an API key you have to register for an account first. Then in your accoun
 
 ## Real Time Events 💬
 
-Not yet described.
+Real Time events i used with socket.io are:
+
+- Message, to send and receive messages for all clients.
+- Connect, to send message that someone connected
+- Disconnect, to send message that someone disconnected.
+
+More will follow while working on this project.
 
 ## How to install this project ⬇️
 
