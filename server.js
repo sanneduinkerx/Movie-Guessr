@@ -1,6 +1,10 @@
+// require dotenv
+require('dotenv').config();
+
 // source: https://github.com/ju5tu5/barebonechat, followed lecture example 
 const express = require('express');
 const app = express();
+const router = require('./router/router');
 
 // http server on web, listens to port, express linked to port with data
 //process listens to port with data from app
@@ -9,19 +13,9 @@ const io = require('socket.io')(http); // read into (http)
 const port = process.env.PORT || 7070; 
 
 //looks in public folder for static files
-app.use(express.static('public'));
 app.set('view engine', 'ejs'); 
-
-//routes -> in different file later 
-app.get('/', function (req, res) {
-    //the (res) respond: renders ejs template home, from the view folder
-    res.render('home');
-})
-
-app.get('/game', function (req, res) {
-    //the (res) respond: renders ejs template home, from the view folder
-    res.render('game');
-})
+app.use(express.static('public'));
+app.use(router);
 
 // when a connection is made with socket.io, the following function gets executed
 // the parameter socket is given with the function
