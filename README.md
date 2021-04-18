@@ -3,18 +3,18 @@
 ## Table of Contents
 - [Description 📋](#description-)
 - [Concept ✏️](#concept---movie-guessr-%EF%B8%8F)
+    - [Live Link 🔗](#live-link-)
     - [Features 🛠](#features-)
     - [Wishlist](#wishlist)
-    - [Live Link 🔗](#live-link-)
-    - [Data Life Cycle](#Data-flow)
+    - [Data Life Cycle](#data-life-cycle-)
 - [API 🍿](#api-)
-    - [Data Model](#data-life-cycle)
+    - [Data Model](#data-model)
     - [How to get api key](#how-to-get-api-Key)
-- [Real Time Events 💬](#real-time-events)
+- [Real Time Events 💬](#real-time-events-)
 - [How to Install ⬇️](#how-to-install-this-project-%EF%B8%8F)
 - [npm Packages 📦](#how-to-install-this-project-%EF%B8%8F)
-- [Next steps 🐾](#next-steps-)
-    - [To Do](#to-do)
+<!-- - [Next steps 🐾](#next-steps-)
+    - [To Do](#to-do) -->
 - [Sources 📚](#sources-)
 
 # Description 📋
@@ -35,6 +35,13 @@ A little sketch:
 **Chosen Concept:**
 I chose the *movie Guessr with hints*, because i think it'll be a nice concept to work on, especially the game feature with multiple users. And there are multiple roles within the game 
 which is a little challenge for me and i thought that would be interesting. And because i'm a fan of movies, and know where most actors play in or famous phrases, i thought the hints would be nice as a feature.
+
+### Live Link 🔗
+
+*Screenshot of Web App will come here.*
+
+You can check out the application [here](movie-guessr-cmd.herokuapp.com/).
+
 
 ### Features 🛠
 - **Chat** function, so all users can guess which movie is described with given hints from 1 user
@@ -58,12 +65,6 @@ which is a little challenge for me and i thought that would be interesting. And 
 - [ ] I give up, button
 - [ ] User can choose how many rounds
 - [ ] invite friends
-
-### Live Link 🔗
-
-*Screenshot of Web App will come here.*
-
-You can check out the application [here](movie-guessr-cmd.herokuapp.com/).
 
 ### Data Life Cycle 🔄
 
