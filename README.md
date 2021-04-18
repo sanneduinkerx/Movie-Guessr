@@ -84,7 +84,7 @@ The API i use within this project is from [The MovieDB](https://developers.themo
 - Get Popular 
 - Get Upcoming
 
-I will be using the Get Top Rated methode. To see how the url and data can be used i used the application **Insomnia**. See [Data Model](#data-model), below. To see how the JSON file is displayed. The URL has an **endpoint**: *https://api.themoviedb.org/3/movie/top_rated*. You can also give a language, region and which page. To get images from the API i use the URL *https://image.tmdb.org/t/p/w500/{poster-path}*. The poster path is in the JSON file with every object, if it has a poster path.
+I will be using the Get Top Rated methode. To see how the url and data can be used i used the application **Insomnia**. See [Data Model](#data-model), below. To see how the JSON file is displayed. The URL has an **endpoint**: *https://api.themoviedb.org/3/movie/top_rated*. You can also give a language, region and which page. To get images from the API i use the URL *https://image.tmdb.org/t/p/w500/{poster-path}*. The poster path is in the JSON file with every object, if it has a poster path. Also the api does have a backdrop photo which is a scene from the movie and doesnt provide a title in the image. This i could use if i go back to a simple game where there are no roles.
 
 <img width="1000" alt="Screenshot 2021-04-18 at 13 34 40" src="https://user-images.githubusercontent.com/60745348/115144222-cbf8be80-a04b-11eb-9dd2-c0efb5df3e6c.png">
 

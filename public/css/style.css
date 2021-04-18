@@ -3,6 +3,11 @@ body {
     margin: 0;
 }
 
+img{
+    height: 600px;
+    /* filter:blur(0.8rem); */
+}
+
 /********************************/
 /*----------- HOME ------------*/
 /******************************/
@@ -54,7 +59,9 @@ body {
     overflow-y: scroll;
 }
 
-/* FORM */
+/*******************/
+/****** FORM ******/
+/*******************/
 
 .game main section:nth-of-type(2) form{
     display: flex;
