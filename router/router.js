@@ -1,7 +1,8 @@
+//import express
 const express = require('express');
 const router = express.Router();
 
-//import fetched data file
+//import routes from routes folder
 const home = require('./routes/home.js');
 const game = require('./routes/game.js');
 
