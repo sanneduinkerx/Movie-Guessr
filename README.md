@@ -158,6 +158,9 @@ Sources I used in this course
 
 - No sources used yet, more will follow.
 
+## License 🔒
+This repository is licensed as [MIT]() by © 2021 Sanne Duinker
+
 <!-- Here are some hints for your project! -->
 
 <!-- Start out with a title and a description -->
