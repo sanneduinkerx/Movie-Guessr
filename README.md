@@ -4,10 +4,13 @@
 - [Description 📋](#description-)
 - [Concept ✏️](#concept---movie-guessr-%EF%B8%8F)
     - [Features 🛠](#features-)
+    - [Wishlist](#wishlist)
     - [Live Link 🔗](#live-link-)
     - [Data Life Cycle](#Data-flow)
 - [API 🍿](#api-)
-    - [Data Model](#data-model)
+    - [Data Model](#data-life-cycle)
+    - [How to get api key](#how-to-get-api-Key)
+- [Real Time Events 💬](#real-time-events)
 - [How to Install ⬇️](#how-to-install-this-project-%EF%B8%8F)
 - [npm Packages 📦](#how-to-install-this-project-%EF%B8%8F)
 - [Next steps 🐾](#next-steps-)
@@ -39,10 +42,30 @@ which is a little challenge for me and i thought that would be interesting. And 
 - An **API** from IMDB or another api to display movie posters
 - **Point system**, to keep track of points earned
 
-### Live Link 🔗
-No link available yet. 
+### Wishlist
 
-### Data Flow
+#### Must have:
+- [ ] Chat function with name, guess correct movie
+- [ ] Loading API data from TheMovieDB, pick random movie poster from api
+- [ ] Implement point system 
+
+#### Should have
+- [ ] show movie poster to ONE user (different roles)
+- [ ] Hints
+- [ ] Different rooms with firebase database
+
+#### Would have
+- [ ] I give up, button
+- [ ] User can choose how many rounds
+- [ ] invite friends
+
+### Live Link 🔗
+
+*Screenshot of Web App will come here.*
+
+You can check out the application [here](movie-guessr-cmd.herokuapp.com/).
+
+### Data Life Cycle 🔄
 
 First version:
 
@@ -50,11 +73,30 @@ First version:
 
 
 ## API 🍿
-No API used yet, more info will follow.
+The API i use within this project is from [The MovieDB](https://developers.themoviedb.org/3/getting-started/introduction). This API has a wide range of get methodes to get data. You can request methodes from movies, tv shows, tv seasons or people. I chose to get requests from movies. The MovieDB has different GET methodes to use, for example:
 
-### Data Model
+- Get Latest
+- Get Now Playing
+- Get Top Rated
+- Get Popular 
+- Get Upcoming
 
-No model yet
+I will be using the Get Top Rated methode. To see how the url and data can be used i used the application **Insomnia**. See [Data Model](#data-model), below. To see how the JSON file is displayed. The URL has an **endpoint**: *https://api.themoviedb.org/3/movie/top_rated*. You can also give a language, region and which page. To get images from the API i use the URL *https://image.tmdb.org/t/p/w500/{poster-path}*. The poster path is in the JSON file with every object, if it has a poster path.
+
+<img width="1000" alt="Screenshot 2021-04-18 at 13 34 40" src="https://user-images.githubusercontent.com/60745348/115144222-cbf8be80-a04b-11eb-9dd2-c0efb5df3e6c.png">
+
+### Data Model 
+The data looks like this:
+
+<img width="1000" alt="Screenshot 2021-04-18 at 13 37 53" src="https://user-images.githubusercontent.com/60745348/115144223-cdc28200-a04b-11eb-947d-7cb794a2095e.png">
+
+### How to get API Key
+
+To get an API key you have to register for an account first. Then in your account click API in the left sidebar, then click create and choose for what you are gonna use the API and then you can fill in the form for an API request. After that you can immediately use the API key. 
+
+## Real Time Events 💬
+
+Not yet described.
 
 ## How to install this project ⬇️
 
@@ -96,7 +138,7 @@ The npm packages i will use in this project:
 - Node-fetch: 
     to use fetch(url) to fetch data from API.
 
-## Next steps: 🐾
+<!-- ## Next steps: 🐾
 My first step is to make **the chat** work so that I understand the websocket. And then to get data from an API, maybe IMDb or ThemovieDB. And load some data into the web app. After that i can begin adding more function to it if the main features work. Maybe first i will start with just a scene from a movie as image for all users to see and then everyone can guess from which movie it is. And if that works i can add more of the features from the ultimate concept.
 
 First step sketch:
@@ -107,9 +149,8 @@ First step sketch:
 - [X] Chat function working
 - [X] Data lifecycle
 - [X] Deploy on heroku
-- [ ] Use insomnia to see how the API is structured
-- [ ] Data api model
-- [ ] Load API data in web app
+- [X] Use insomnia to see how the API is structured
+- [ ] Load API data in web app -->
 
 ## Sources 📚
 Sources I used in this course 
