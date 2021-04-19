@@ -31,6 +31,9 @@ const game = async function (req, res){
     const length = movieData.results.length;
 
     // function to get random number within range length of API for example picks random number between 0 and 20
+    // kidding do this with socket io GIVE THIS TO SOCKET, has 2 different things now every client different thing
+    // but the function is there just use it for socket!!!!
+    // GIVE TO EVERY CLIENT
     const randomNumber = function getRandomNumber(length){
         return Math.floor(Math.random() * length);
     }
