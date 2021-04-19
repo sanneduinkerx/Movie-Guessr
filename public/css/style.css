@@ -4,7 +4,8 @@ body {
 }
 
 img{
-    height: 600px;
+    max-height: 1000px;
+    max-width: 1000px;
     /* filter:blur(0.8rem); */
 }
 

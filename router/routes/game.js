@@ -30,12 +30,12 @@ const game = async function (req, res){
     // length objects fetched data
     const length = movieData.results.length;
 
-    // function to get random number within range length of API
+    // function to get random number within range length of API for example picks random number between 0 and 20
     const randomNumber = function getRandomNumber(length){
         return Math.floor(Math.random() * length);
     }
 
-    // with function getRandomNumber, i can now pick one random object from results
+    // with function getRandomNumber, i can now pick one random object from results so for example object 4 
     const data = movieData.results[randomNumber(length)];
 
     //the (res) respond: renders ejs template home, from the view folder

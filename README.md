@@ -52,14 +52,16 @@ You can check out the application [here](movie-guessr-cmd.herokuapp.com/).
 ### Wishlist
 
 #### Must have:
-- [ ] Chat function with name, guess correct movie
-- [X] Loading API data from TheMovieDB, pick random movie poster from api
+- [ ] Chat function with display name
+- [ ] Guess correct movie with feedback and then show next poster/scene
+- [X] Loading API data from TheMovieDB, pick random movie poster/scene from api
 - [ ] Implement point system 
+- [ ] Data managment, sessions
 
 #### Should have
 - [ ] show movie poster to ONE user (different roles)
-- [ ] Hints
-- [ ] Different rooms with firebase database
+- [ ] Hints 
+- [ ] Different rooms
 
 #### Would have
 - [ ] I give up, button
@@ -82,11 +84,12 @@ First step sketch:
 ![](https://user-images.githubusercontent.com/60745348/114186198-d974c100-9946-11eb-8d00-c10d029861af.png)
 
 ### To Do:
-- [X] Chat function working
-- [X] Data lifecycle
-- [X] Deploy on heroku
-- [X] Use insomnia to see how the API is structured
-- [X] Load API data in web app
+- [ ] Correct answer + feedback, next api data shown (Must have)
+- [ ] Data managment with sessions (Must have)
+- [ ] Display name + see when someone connects or disconnects (Must have)
+- [ ] Use firebase maybe? (Should have)
+- [ ] point system (Should have)
+- [ ] Different roles (hints etc) (Should have)
 
 ## API 🍿
 The API i use within this project is from [The MovieDB](https://developers.themoviedb.org/3/getting-started/introduction). This API has a wide range of get methodes to get data. You can request methodes from movies, tv shows, tv seasons or people. I chose to get requests from movies. The MovieDB has different GET methodes to use, for example:

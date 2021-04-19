@@ -15,6 +15,7 @@ const port = process.env.PORT || 7070;
 //looks in public folder for static files
 app.set('view engine', 'ejs'); 
 app.use(express.static('public'));
+// router implemented with all the routes
 app.use(router);
 
 // when a connection is made with socket.io, the following function gets executed
