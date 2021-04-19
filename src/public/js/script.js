@@ -26,3 +26,4 @@ socket.on('message', (message) => {
     messages.appendChild(messageEl);
     messages.scrollTop = messages.scrollHeight;
 })
+
