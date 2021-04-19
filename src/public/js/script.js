@@ -5,6 +5,7 @@ const socket = io();
 const messages = document.querySelector('section:nth-of-type(2) ul');
 const input = document.querySelector('section:nth-of-type(2) form input')
 const formChat = document.getElementById('chat');
+const img = document.getElementById('moviePoster');
 
 formChat.addEventListener('submit', (e) => {
         // the default, sending a form is now prevented
@@ -27,3 +28,8 @@ socket.on('message', (message) => {
     messages.scrollTop = messages.scrollHeight;
 })
 
+// listens for data event then executes function 
+socket.on('data', (data) => {
+    console.log(data);
+    img.src =`https://image.tmdb.org/t/p/w500/${data.img_path}`
+})
