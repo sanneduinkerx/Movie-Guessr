@@ -30,6 +30,7 @@ socket.on('message', (message) => {
 
 // listens for data event then executes function 
 socket.on('data', (data) => {
-    console.log(data);
+    //source is img path send with websocket to every client
     img.src =`https://image.tmdb.org/t/p/w500/${data.img_path}`
+    console.log(data.title);
 })

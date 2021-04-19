@@ -52,10 +52,11 @@ const randomSortedMovieData = async () => {
 io.on('connection', async (socket) => {
     console.log('User connected'); 
 
-    // execute funtion to sorted order randomly from api object
+    // execute funtion to sort order randomly from api object
     const randomSortedMovies = await randomSortedMovieData();
     const movieData = {
         title: randomSortedMovies[0].title,
+        // you have a backdrop_path: WITHOUT poster title and a poster_path with the title -> do this in readMe
         img_path: randomSortedMovies[0].backdrop_path
     }
 
