@@ -1,6 +1,8 @@
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
+    background-color: rgb(44, 44, 44);
+    color: white;
 }
 
 img{
@@ -52,6 +54,7 @@ img{
     padding: 1em;
     list-style: none;
     margin: 1em auto;
+    color: black;
 }
 
 .game main section:nth-of-type(2) ul li p:first-of-type {
