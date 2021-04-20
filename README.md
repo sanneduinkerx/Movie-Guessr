@@ -9,7 +9,6 @@ For the course Real Time Web, I'm making a Real Time web app, as the name says. 
     - [Features 🛠](#features-)
     - [Wishlist](#wishlist)
     - [Data Life Cycle](#data-life-cycle-)
-- [Must Have Concept ](#must-have-concept-)
 - [API 🍿](#api-)
     - [Data Model](#data-model)
     - [How to get api key](#how-to-get-api-Key)
@@ -51,10 +50,15 @@ You can check out the application [here](movie-guessr-cmd.herokuapp.com/).
 ### Wishlist
 
 #### Must have:
-- [ ] Chat function with display name
+- [X] Chat function with display name
 - [ ] Guess correct movie with feedback and then show next poster/scene
 - [X] Loading API data from TheMovieDB, pick random movie poster/scene from api
 - [ ] Implement point system 
+
+### Must Have Concept: 
+
+![](https://user-images.githubusercontent.com/60745348/114186198-d974c100-9946-11eb-8d00-c10d029861af.png)
+
 
 #### Should have
 - [ ] show movie poster to ONE user (different roles)
@@ -66,12 +70,6 @@ You can check out the application [here](movie-guessr-cmd.herokuapp.com/).
 - [ ] I give up, button
 - [ ] User can choose how many rounds
 - [ ] invite friends
-
-## Must Have Concept: 
-<!-- My first step is to make **the chat** work so that I understand the websocket. And then to get data from an API, maybe IMDb or ThemovieDB. And load some data into the web app. After that i can begin adding more function to it if the main features work. Maybe first i will start with just a scene from a movie as image for all users to see and then everyone can guess from which movie it is. And if that works i can add more of the features from the ultimate concept.
-First step sketch: -->
-
-![](https://user-images.githubusercontent.com/60745348/114186198-d974c100-9946-11eb-8d00-c10d029861af.png)
 
 
 ### Data Life Cycle 🔄
