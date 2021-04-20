@@ -7,6 +7,10 @@ const input = document.querySelector('section:nth-of-type(2) form input')
 const formChat = document.getElementById('chat');
 const img = document.getElementById('moviePoster');
 
+// getting query from url, the display name
+const urlParams = new URLSearchParams(window.location.search);
+const name = urlParams.get('name');
+
 formChat.addEventListener('submit', (e) => {
         // the default, sending a form is now prevented
         e.preventDefault();
@@ -15,16 +19,30 @@ formChat.addEventListener('submit', (e) => {
         if(input.value){
             //emit: uitsturen
             // event named message and give the input.value with it that the user from client side submits
-            socket.emit('message', input.value);
+            // giving message plus display name send to server
+            socket.emit('message', {
+              name,
+              msg: input.value
+            });
             //empty input field
             input.value = '';
         }
 })
 
-socket.on('message', (message) => {
-    const messageEl = document.createElement('li');
-    messageEl.textContent = message;
-    messages.appendChild(messageEl);
+socket.on('message', ({ msg, name }) => {
+
+    const chatBlock = document.createElement('li');
+    const displayName = document.createElement('p');
+    const messageEl = document.createElement('p');
+
+
+    // fill message with the name and msg
+    displayName.textContent = name;
+    messageEl.textContent = msg;
+
+    chatBlock.appendChild(displayName);
+    chatBlock.appendChild(messageEl);
+    messages.appendChild(chatBlock);
     messages.scrollTop = messages.scrollHeight;
 })
 

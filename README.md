@@ -9,8 +9,7 @@ For the course Real Time Web, I'm making a Real Time web app, as the name says. 
     - [Features 🛠](#features-)
     - [Wishlist](#wishlist)
     - [Data Life Cycle](#data-life-cycle-)
-- [Next steps 🐾](#next-steps-)
-    - [To Do](#to-do)
+- [Must Have Concept ](#must-have-concept-)
 - [API 🍿](#api-)
     - [Data Model](#data-model)
     - [How to get api key](#how-to-get-api-Key)
@@ -20,7 +19,7 @@ For the course Real Time Web, I'm making a Real Time web app, as the name says. 
 - [Sources 📚](#sources-)
 
 
-## Concept - Movie Guessr ✏️
+## Ultimate Concept - Movie Guessr ✏️
 My idea is to make a Guessing game with movies. So there will be a chat available for the users to guess the movie. And my ultimate goal is that 1 user in the game room can see the movie poster and he/she types a hint, in total 3 hints, and the other users have to guess with the hints which movie it is. The hint can be an actor who plays in the movie, or a popular quote from the movie. Maybe later something with *firebase* to make rooms and all data.
 
 A little sketch: 
@@ -56,17 +55,24 @@ You can check out the application [here](movie-guessr-cmd.herokuapp.com/).
 - [ ] Guess correct movie with feedback and then show next poster/scene
 - [X] Loading API data from TheMovieDB, pick random movie poster/scene from api
 - [ ] Implement point system 
-- [ ] Data managment, sessions
 
 #### Should have
 - [ ] show movie poster to ONE user (different roles)
 - [ ] Hints 
 - [ ] Different rooms
+- [ ] Database
 
 #### Would have
 - [ ] I give up, button
 - [ ] User can choose how many rounds
 - [ ] invite friends
+
+## Must Have Concept: 
+<!-- My first step is to make **the chat** work so that I understand the websocket. And then to get data from an API, maybe IMDb or ThemovieDB. And load some data into the web app. After that i can begin adding more function to it if the main features work. Maybe first i will start with just a scene from a movie as image for all users to see and then everyone can guess from which movie it is. And if that works i can add more of the features from the ultimate concept.
+First step sketch: -->
+
+![](https://user-images.githubusercontent.com/60745348/114186198-d974c100-9946-11eb-8d00-c10d029861af.png)
+
 
 ### Data Life Cycle 🔄
 
@@ -75,21 +81,6 @@ First version:
 ![](https://user-images.githubusercontent.com/60745348/114559308-e148a400-9c6b-11eb-8da2-5780674a3610.png)
 
 **Note**: I will make this a digital version, with colors + functions on the server side to show which functions are used. And later a database if i use one.
-
-## Next steps: 🐾
-My first step is to make **the chat** work so that I understand the websocket. And then to get data from an API, maybe IMDb or ThemovieDB. And load some data into the web app. After that i can begin adding more function to it if the main features work. Maybe first i will start with just a scene from a movie as image for all users to see and then everyone can guess from which movie it is. And if that works i can add more of the features from the ultimate concept.
-
-First step sketch:
-
-![](https://user-images.githubusercontent.com/60745348/114186198-d974c100-9946-11eb-8d00-c10d029861af.png)
-
-### To Do:
-- [ ] Correct answer + feedback, next api data shown (Must have)
-- [ ] Data managment with sessions (Must have)
-- [ ] Display name + see when someone connects or disconnects (Must have)
-- [ ] Use firebase maybe? (Should have)
-- [ ] point system (Should have)
-- [ ] Different roles (hints etc) (Should have)
 
 ## API 🍿
 The API i use within this project is from [The MovieDB](https://developers.themoviedb.org/3/getting-started/introduction). This API has a wide range of get methodes to get data. You can request methodes from movies, tv shows, tv seasons or people. I chose to get requests from movies. The MovieDB has different GET methodes to use, for example:

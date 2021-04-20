@@ -24,7 +24,7 @@ app.use(express.static('./src/public'));
 // router implemented with all the routes
 app.use(router);
 
-//______ FETCH ______//
+//______ FETCH DATA ______//
 
 const randomSortedMovieData = async () => {
     // API vars to send with fetch
@@ -66,9 +66,9 @@ io.on('connection', async (socket) => {
     // connection opened, then you can listen to events
     // self named event, message from client side
     // event is given in parameter in nameless function
-    socket.on('message', (message) => {
+    socket.on('message', (data) => {
         //io emit to SEND the message back to all clients that have browser open
-        io.emit('message', message);
+        io.emit('message', data);
     })
 
     // for example when user disconnects
