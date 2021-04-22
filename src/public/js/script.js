@@ -9,7 +9,7 @@ const img = document.getElementById('moviePoster');
 
 // getting query from url, the display name
 const urlParams = new URLSearchParams(window.location.search);
-const name = urlParams.get('name');
+const username = urlParams.get('name');
 
 formChat.addEventListener('submit', (e) => {
         // the default, sending a form is now prevented
@@ -21,7 +21,7 @@ formChat.addEventListener('submit', (e) => {
             // event named message and give the input.value with it that the user from client side submits
             // giving message plus display name send to server
             socket.emit('message', {
-              name,
+              username,
               msg: input.value
             });
             //empty input field
@@ -29,7 +29,7 @@ formChat.addEventListener('submit', (e) => {
         }
 })
 
-socket.on('message', ({ msg, name }) => {
+socket.on('message', ({ msg, username }) => {
 
     const chatBlock = document.createElement('li');
     const displayName = document.createElement('p');
@@ -37,7 +37,7 @@ socket.on('message', ({ msg, name }) => {
 
 
     // fill message with the name and msg
-    displayName.textContent = name;
+    displayName.textContent = username;
     messageEl.textContent = msg;
 
     chatBlock.appendChild(displayName);

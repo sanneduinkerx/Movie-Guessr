@@ -2,19 +2,23 @@
 
 <body class="home">
     <header>
-        <h1>Movie Guessr</h1>
+        <h1>  <span>M</span>ovie <span>G</span>uessr 🎬</h1>
     </header>
 
     <main>
         <section>
             <h2>Welcome!</h2>
             <p>This is THE game to play with friends.</p>
-            <p>Every user has one turn to give hints to the other users. The rest have to guess which movie is described.</p>
+            <p>Guess together with friends which movie scene is displayed on screen and earn points!</p>
            <form action="/game" method="get">
-                <input type="text" placeholder="Display name" name="name">
-            <button type='submit'>Start playing!</button>
+                <input type="text" placeholder="Display name" name="name" mminlength="1" required="required">
+            <button type='submit'>Start playing 👾</button>
            </form>
         </section>
     </main>
+
+    <footer>
+        <img src="img/popcorn1.png" alt="">
+    </footer>
 
 <%- include('./partials/footer.ejs'); %> 
