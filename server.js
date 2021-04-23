@@ -24,8 +24,9 @@ app.use(express.static('./src/public'));
 // router implemented with all the routes
 app.use(router);
 
-//______ FETCH DATA ______//
+//______ FETCH DATA  + sort order ______//
 
+// var to fill with random sorted order data object
 let data;
 
 const randomSortedMovieData = async () => {
@@ -50,7 +51,11 @@ const randomSortedMovieData = async () => {
     return data;
 }
 
-randomSortedMovieData().then(() => console.log('randomness thingy being randomized'))
+// execute function to get data and sort order randomly.
+randomSortedMovieData()
+    .then(() => console.log('order being randomized and data fetched'))
+    .catch((err) => console.log(err))
+
 
 //______ WEBSOCKET ______//
 
@@ -58,7 +63,11 @@ randomSortedMovieData().then(() => console.log('randomness thingy being randomiz
 // the parameter socket is given with the function
 io.on('connection', async (socket) => {
     console.log('User connected'); 
-    console.log(data);
+
+    // give feedback when someone joins
+    // socket.on('userConnected', (userName) => {
+    //     io.emit('userConnected', userName);
+    // })
 
     const movieData = {
         title: data[0].title,

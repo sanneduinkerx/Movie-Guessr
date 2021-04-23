@@ -29,12 +29,20 @@ formChat.addEventListener('submit', (e) => {
         }
 })
 
+// message when someone joins
+// socket.emit('userConnected', username);
+// socket.on('userConnected', (username) => {
+
+//     const userConnected = document.createElement('p');
+//     userConnected.textContent = `${username} has joined the game`;
+//     messages.appendChild(userConnected);
+// })
+
 socket.on('message', ({ msg, username }) => {
 
     const chatBlock = document.createElement('li');
     const displayName = document.createElement('p');
     const messageEl = document.createElement('p');
-
 
     // fill message with the name and msg
     displayName.textContent = username;
