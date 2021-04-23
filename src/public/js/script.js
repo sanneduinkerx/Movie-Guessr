@@ -30,7 +30,8 @@ formChat.addEventListener('submit', (e) => {
 })
 
 // message when someone joins
-// socket.emit('userConnected', username);
+socket.emit('userConnected', username);
+
 // socket.on('userConnected', (username) => {
 
 //     const userConnected = document.createElement('p');

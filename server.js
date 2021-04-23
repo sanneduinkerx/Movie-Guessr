@@ -59,15 +59,26 @@ randomSortedMovieData()
 
 //______ WEBSOCKET ______//
 
+let users = [];
+
 // when a connection is made with socket.io, the following function gets executed
 // the parameter socket is given with the function
 io.on('connection', async (socket) => {
-    console.log('User connected'); 
+    // console.log('User connected'); 
 
     // give feedback when someone joins
-    // socket.on('userConnected', (userName) => {
-    //     io.emit('userConnected', userName);
-    // })
+    socket.on('userConnected', (userName) => {
+        io.emit('userConnected', userName);
+        
+        users.push({
+            username: userName,
+            score: 0,
+            id: socket.id
+        });
+
+        console.log(`${userName} connected`);
+        console.log(users);
+    })
 
     const movieData = {
         title: data[0].title,
@@ -81,14 +92,42 @@ io.on('connection', async (socket) => {
     // connection opened, then you can listen to events
     // self named event, message from client side
     // event is given in parameter in nameless function
-    socket.on('message', (data) => {
+    socket.on('message', (chatMsg) => {
         //io emit to SEND the message back to all clients that have browser open
-        io.emit('message', data);
+        io.emit('message', chatMsg);
+
+        if(chatMsg.msg.toLowerCase() == data[0].title.toLowerCase()){
+            const user = chatMsg.username;
+            chatMsg.username = 'gamehost';
+            chatMsg.msg = `${user} guessed the right movie`;
+        
+            users.forEach(user => {
+                if(user.id == socket.id) 
+                {
+                    user.username = 'marco';
+                    //user.score = user.score + 1;                   
+                }
+            });
+           
+
+            io.emit('message', chatMsg);
+        } 
+        console.log(users);
     })
 
     // for example when user disconnects
     socket.on('disconnect', () => {
-        console.log('User disconnected');
+        let name = 'empty';
+
+        users.forEach(user => {
+            if(user.id == socket.id) 
+            {
+                name = user.username;
+                users = users.filter(user => user.id != socket.id);
+            }
+        });
+       
+        console.log(` ${name} disconnected`);
     })
 })
 
