@@ -70,6 +70,7 @@ io.on('connection', async (socket) => {
     socket.on('userConnected', (userName) => {
         io.emit('userConnected', userName);
         
+        // storing user data
         users.push({
             username: userName,
             score: 0,
@@ -80,6 +81,7 @@ io.on('connection', async (socket) => {
         console.log(users);
     })
 
+    // storing api data in object
     const movieData = {
         title: data[0].title,
         // you have a backdrop_path: WITHOUT poster title and a poster_path with the title -> do this in readMe
@@ -96,11 +98,14 @@ io.on('connection', async (socket) => {
         //io emit to SEND the message back to all clients that have browser open
         io.emit('message', chatMsg);
 
+        //checking if message involves name
+        // need to fix more, .includes, not the entire message
         if(chatMsg.msg.toLowerCase() == data[0].title.toLowerCase()){
             const user = chatMsg.username;
             chatMsg.username = 'gamehost';
             chatMsg.msg = `${user} guessed the right movie`;
         
+            // adding points
             users.forEach(user => {
                 if(user.id == socket.id) 
                 {
@@ -108,9 +113,8 @@ io.on('connection', async (socket) => {
                     //user.score = user.score + 1;                   
                 }
             });
-           
-
-            io.emit('message', chatMsg);
+            
+            // io.emit('message', chatMsg);
         } 
         console.log(users);
     })
@@ -119,6 +123,7 @@ io.on('connection', async (socket) => {
     socket.on('disconnect', () => {
         let name = 'empty';
 
+        // getting name for feedback later to get to all users
         users.forEach(user => {
             if(user.id == socket.id) 
             {
