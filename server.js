@@ -26,7 +26,11 @@ app.use(router);
 
 //______ FETCH DATA ______//
 
+let data;
+
 const randomSortedMovieData = async () => {
+    // console.log(dataArray);
+
     // API vars to send with fetch
     const endpoint = 'https://api.themoviedb.org/3/movie/top_rated?',
             key = process.env.KEY,
@@ -42,8 +46,11 @@ const randomSortedMovieData = async () => {
     // random order so its not the same order every time someone plays
     // still search what the .5 for is
     const sortedMovies = movieData.results.sort(() => .5 - Math.random());
-    return sortedMovies;
+    data = sortedMovies;
+    return data;
 }
+
+randomSortedMovieData().then(() => console.log('randomness thingy being randomized'))
 
 //______ WEBSOCKET ______//
 
@@ -51,13 +58,12 @@ const randomSortedMovieData = async () => {
 // the parameter socket is given with the function
 io.on('connection', async (socket) => {
     console.log('User connected'); 
+    console.log(data);
 
-    // execute funtion to sort order randomly from api object
-    const randomSortedMovies = await randomSortedMovieData();
     const movieData = {
-        title: randomSortedMovies[0].title,
+        title: data[0].title,
         // you have a backdrop_path: WITHOUT poster title and a poster_path with the title -> do this in readMe
-        img_path: randomSortedMovies[0].backdrop_path
+        img_path: data[0].backdrop_path
     }
 
     // emit to all clients the movieData Object
