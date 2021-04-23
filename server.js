@@ -100,7 +100,7 @@ io.on('connection', async (socket) => {
 
         //checking if message involves name
         // need to fix more, .includes, not the entire message
-        if(chatMsg.msg.toLowerCase() == data[0].title.toLowerCase()){
+        if(chatMsg.msg.toLowerCase() === data[0].title.toLowerCase()){
             const user = chatMsg.username;
             chatMsg.username = 'gamehost';
             chatMsg.msg = `${user} guessed the right movie`;
@@ -114,7 +114,7 @@ io.on('connection', async (socket) => {
                 }
             });
             
-            // io.emit('message', chatMsg);
+            io.emit('message', chatMsg);
         } 
         console.log(users);
     })
