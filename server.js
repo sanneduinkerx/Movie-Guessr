@@ -62,21 +62,22 @@ let users = [];
 // when a connection is made with socket.io, the following function gets executed
 // the parameter socket is given with the function
 io.on('connection', async (socket) => {
-    // console.log('User connected'); 
 
     // give feedback when someone joins
     socket.on('userConnected', (userName) => {
+
+        //send event with username to all clients
+        // feedback who joined the game
         io.emit('userConnected', userName);
         
-        // storing user data
+        // storing user data to acces later for score and when someone disconnects
         users.push({
             username: userName,
             score: 0,
+            // every client has a socket.id so i store the socket id together with the name
+            // so i know which users are which
             id: socket.id
         });
-
-        console.log(`${userName} connected`);
-        console.log(users);
     })
 
     // storing api data in object
@@ -89,26 +90,26 @@ io.on('connection', async (socket) => {
     // emit to all clients the movieData Object
     io.emit('data', movieData);
 
-    // connection opened, then you can listen to events
-    // self named event, message from client side
-    // event is given in parameter in nameless function
+    // message event with chat message a client submitted through form
     socket.on('message', (chatMsg) => {
         //io emit to SEND the message back to all clients that have browser open
+        // send message to all clients
         io.emit('message', chatMsg);
 
-        //checking if message involves name
+        //checking if message involves a movie name
         // need to fix more, .includes, not the entire message
         if(chatMsg.msg.toLowerCase() === data[0].title.toLowerCase()){
             const user = chatMsg.username;
+
+            //feedback to all users, someone guessed it right
             chatMsg.username = 'gamehost';
             chatMsg.msg = `${user} guessed the right movie`;
         
             // adding points
             users.forEach(user => {
-                if(user.id == socket.id) 
-                {
-                    user.username = 'marco';
-                    //user.score = user.score + 1;                   
+                if(user.id == socket.id){
+                    // updating the score in the user array with +10 of the person who got it right
+                    user.score = user.score + 10;
                 }
             });
             
@@ -119,18 +120,21 @@ io.on('connection', async (socket) => {
 
     // for example when user disconnects
     socket.on('disconnect', () => {
-        let name = 'empty';
+        let name = '';
 
         // getting name for feedback later to get to all users
+        // write different
         users.forEach(user => {
-            if(user.id == socket.id) 
-            {
+            if(user.id == socket.id){
                 name = user.username;
+                // delete user 
                 users = users.filter(user => user.id != socket.id);
             }
         });
        
-        console.log(` ${name} disconnected`);
+        io.emit('disconnected', name)
+        // console.log(` ${name} disconnected`);
+        console.log(users)
     })
 })
 

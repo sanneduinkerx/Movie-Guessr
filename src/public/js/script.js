@@ -29,15 +29,15 @@ formChat.addEventListener('submit', (e) => {
         }
 })
 
-// message when someone joins
+// send typed in username to server
 socket.emit('userConnected', username);
 
-// socket.on('userConnected', (username) => {
+socket.on('userConnected', (username) => {
 
-//     const userConnected = document.createElement('p');
-//     userConnected.textContent = `${username} has joined the game`;
-//     messages.appendChild(userConnected);
-// })
+    const userConnected = document.createElement('p');
+    userConnected.textContent = `${username} has joined the game`;
+    messages.appendChild(userConnected);
+})
 
 socket.on('message', ({ msg, username }) => {
 
@@ -60,4 +60,11 @@ socket.on('data', (data) => {
     //source is img path send with websocket to every client
     img.src =`https://image.tmdb.org/t/p/w500/${data.img_path}`
     console.log(data.title);
+})
+
+//feedback when someone disconnects/leaves game
+socket.on('disconnected', (name) => {
+        const userDisconnect = document.createElement('p');
+        userDisconnect.textContent = `${name} has left the game`;
+        messages.appendChild(userDisconnect);
 })
