@@ -5,7 +5,6 @@ body {
     color: white;
     hyphens: auto;
     font-family: 'Fira Mono', monospace;
-
 }
 
 h1{
@@ -13,7 +12,6 @@ h1{
     text-align: left;
     margin: 1em;
 }
-
 
 h2{
     text-align: center;
@@ -72,7 +70,6 @@ section:first-of-type img{
     border-radius: 10px;
     outline: none;
     border: solid 2px coral;
-    /* width: 100%; */
     font-family: 'Fira Mono', monospace;
 }
 
@@ -96,10 +93,8 @@ section:first-of-type img{
 }
 
 .home main form button:hover{
-
     background-color: rgb(197, 99, 63);
     cursor: pointer;
-
 }
 
 .home form{
@@ -225,21 +220,37 @@ section:first-of-type img{
 
 @media (max-width: 720px){
 
+
     .game main {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
+        /* grid-template-rows: 1fr 1fr; */
     }
 
     section:first-of-type img{
         position:static;
-        margin: 3em auto;
+        margin: 2em auto;
         max-height: 200px;
-
     }
 
     h1{
         text-align: center;
+        font-size: 24px;
     }
+
+    h2{
+        font-size: 20px;
+    }
+
+    .game main section:nth-of-type(2){
+        height: 44vh;
+        border-radius: 10px 10px 0px 10px;
+        position: relative;
+    }
+
+    .game main section:nth-of-type(2) ul {
+        padding: 1em;
+        height: 20vh;
+        overflow-y: scroll;
 
 }

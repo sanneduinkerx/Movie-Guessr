@@ -2,7 +2,7 @@
 
 <body class="home">
     <header>
-        <h1>  <span>M</span>ovie <span>G</span>uessr 🎬</h1>
+        <%- include('./partials/logo.ejs'); %> 
     </header>
 
     <main>
@@ -11,14 +11,14 @@
             <p>This is THE game to play with friends.</p>
             <p>Guess together with friends which movie scene is displayed on screen and earn points!</p>
            <form action="/game" method="get">
-                <input type="text" placeholder="Display name" name="name" mminlength="1" required="required">
+                <input type="text" placeholder="Display name" name="name" minlength="1" required="required">
             <button type='submit'>Start playing 👾</button>
            </form>
         </section>
     </main>
 
     <footer>
-        <img src="img/popcorn1.png" alt="">
+        <img src="img/popcorn1.png" alt="popcorn banner">
     </footer>
 
 <%- include('./partials/footer.ejs'); %> 

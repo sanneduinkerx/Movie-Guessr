@@ -30,8 +30,6 @@ app.use(router);
 let data;
 
 const randomSortedMovieData = async () => {
-    // console.log(dataArray);
-
     // API vars to send with fetch
     const endpoint = 'https://api.themoviedb.org/3/movie/top_rated?',
             key = process.env.KEY,
