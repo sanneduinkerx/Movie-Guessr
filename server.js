@@ -64,6 +64,8 @@ let round = 0;
 // the parameter socket is given with the function
 io.on('connection', async (socket) => {
 
+    //______ USER CONNECTED______//
+
     // give feedback when someone joins
     socket.on('userConnected', (userName) => {
 
@@ -83,36 +85,36 @@ io.on('connection', async (socket) => {
         io.emit('scoreBoard', users);
     })
 
+     //______ API DATA ______//
     // storing api data in object
-    // let movieDatas = {
-    //     title: sortedData[0].title,
-    //     // you have a backdrop_path: WITHOUT poster title and a poster_path with the title -> do this in readMe
-    //     img_path: sortedData[0].backdrop_path
-    // }
-    // io.emit('movieData', movieDatas);
+    let guessMovie = {
+        title: sortedData[round].title,
+        img_path: sortedData[round].backdrop_path
+    }
+    
+    io.emit('movieData', guessMovie);
 
-    // // emit to all clients the movieData Object
-    io.emit('movieData', {
-        sortedData,
-        round
-    });
 
+     //______ CHAT + GUESS ANSWER ______//
     // message event with chat message a client submitted through form
     socket.on('message', (chatMsg) => {
         //io emit to SEND the message back to all clients that have browser open
         // send message to all clients
         io.emit('message', chatMsg);
 
+         //______ WE HAVE A WINNER  ______//
         //checking if message involves a movie name
-        // need to fix more, .includes, not the entire message
+        // need to fix more, .includes, not the entire message?
         if(chatMsg.msg.toLowerCase() === sortedData[round].title.toLowerCase()){
             const user = chatMsg.username;
 
             //feedback to all users, someone guessed it right
             chatMsg.username = 'gamehost';
             chatMsg.msg = `${user} guessed the right movie`;
-        
-            // adding points
+
+            io.emit('message', chatMsg);
+            
+            //______ ADD POINTS ______//
             users.forEach(user => {
                 if(user.id == socket.id){
                     // updating the score in the user array with +10 of the person who got it right
@@ -122,25 +124,28 @@ io.on('connection', async (socket) => {
 
             io.emit('scoreBoard', users);
 
+             //______ SHOW NEXT MOVIE ______//
+            // check if the round is a higher value then the length of array
             if(round >= sortedData.length - 1){
                 round = 0;
                 randomSortedMovieData()
                     .then(() => console.log('order being randomized and data fetched'))
                     .catch((err) => console.log(err))
             } else {
+                // else add +1 to round
                 round = round + 1;
             }
-            // io.emit('movieData', movieData);
-            io.emit('movieData', {
-                sortedData,
-                round
-            });
 
-            io.emit('message', chatMsg);
+            let guessMovie = {
+                title: sortedData[round].title,
+                img_path: sortedData[round].backdrop_path
+            }        
+
+            io.emit('movieData', guessMovie);
         } 
-        console.log(users);
     })
 
+    //______ DISCONNECTED ______//
     // for example when user disconnects
     socket.on('disconnect', () => {
         let name = '';
@@ -156,8 +161,7 @@ io.on('connection', async (socket) => {
         });
        
         io.emit('disconnected', name)
-        // console.log(` ${name} disconnected`);
-        console.log(users)
+
     })
 })
 

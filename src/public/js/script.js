@@ -57,11 +57,11 @@ socket.on('message', ({ msg, username }) => {
 })
 
 // listens for data event then executes function 
-socket.on('movieData', ({sortedData, round}) => {
+socket.on('movieData', (guessMovie) => {
     //source is img path send with websocket to every client
-    // console.log(sortedData)
-    img.src =`https://image.tmdb.org/t/p/w500/${sortedData[round].backdrop_path}`
-    console.log(sortedData[round].title);
+    console.log(guessMovie)
+    img.src =`https://image.tmdb.org/t/p/w500/${guessMovie.img_path}`
+    console.log(guessMovie.title);
 })
 
 
