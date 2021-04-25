@@ -27,7 +27,7 @@ app.use(router);
 //______ FETCH DATA  + sort order ______//
 
 // var to fill with random sorted order data object
-let data;
+let sortedData;
 
 const randomSortedMovieData = async () => {
     // API vars to send with fetch
@@ -45,8 +45,8 @@ const randomSortedMovieData = async () => {
     // random order so its not the same order every time someone plays
     // still search what the .5 for is
     const sortedMovies = movieData.results.sort(() => .5 - Math.random());
-    data = sortedMovies;
-    return data;
+    sortedData = sortedMovies;
+    return sortedData;
 }
 
 // execute function to get data and sort order randomly.
@@ -58,6 +58,7 @@ randomSortedMovieData()
 //______ WEBSOCKET ______//
 
 let users = [];
+let round = 0;
 
 // when a connection is made with socket.io, the following function gets executed
 // the parameter socket is given with the function
@@ -78,17 +79,23 @@ io.on('connection', async (socket) => {
             // so i know which users are which
             id: socket.id
         });
+
+        io.emit('scoreBoard', users);
     })
 
     // storing api data in object
-    const movieData = {
-        title: data[0].title,
-        // you have a backdrop_path: WITHOUT poster title and a poster_path with the title -> do this in readMe
-        img_path: data[0].backdrop_path
-    }
+    // let movieDatas = {
+    //     title: sortedData[0].title,
+    //     // you have a backdrop_path: WITHOUT poster title and a poster_path with the title -> do this in readMe
+    //     img_path: sortedData[0].backdrop_path
+    // }
+    // io.emit('movieData', movieDatas);
 
-    // emit to all clients the movieData Object
-    io.emit('data', movieData);
+    // // emit to all clients the movieData Object
+    io.emit('movieData', {
+        sortedData,
+        round
+    });
 
     // message event with chat message a client submitted through form
     socket.on('message', (chatMsg) => {
@@ -98,7 +105,7 @@ io.on('connection', async (socket) => {
 
         //checking if message involves a movie name
         // need to fix more, .includes, not the entire message
-        if(chatMsg.msg.toLowerCase() === data[0].title.toLowerCase()){
+        if(chatMsg.msg.toLowerCase() === sortedData[round].title.toLowerCase()){
             const user = chatMsg.username;
 
             //feedback to all users, someone guessed it right
@@ -112,7 +119,23 @@ io.on('connection', async (socket) => {
                     user.score = user.score + 10;
                 }
             });
-            
+
+            io.emit('scoreBoard', users);
+
+            if(round >= sortedData.length - 1){
+                round = 0;
+                randomSortedMovieData()
+                    .then(() => console.log('order being randomized and data fetched'))
+                    .catch((err) => console.log(err))
+            } else {
+                round = round + 1;
+            }
+            // io.emit('movieData', movieData);
+            io.emit('movieData', {
+                sortedData,
+                round
+            });
+
             io.emit('message', chatMsg);
         } 
         console.log(users);

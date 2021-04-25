@@ -6,6 +6,7 @@ const messages = document.querySelector('section:nth-of-type(2) ul');
 const input = document.querySelector('section:nth-of-type(2) form input')
 const formChat = document.getElementById('chat');
 const img = document.getElementById('moviePoster');
+const score = document.getElementById('score');
 
 // getting query from url, the display name
 const urlParams = new URLSearchParams(window.location.search);
@@ -56,10 +57,29 @@ socket.on('message', ({ msg, username }) => {
 })
 
 // listens for data event then executes function 
-socket.on('data', (data) => {
+socket.on('movieData', ({sortedData, round}) => {
     //source is img path send with websocket to every client
-    img.src =`https://image.tmdb.org/t/p/w500/${data.img_path}`
-    console.log(data.title);
+    // console.log(sortedData)
+    img.src =`https://image.tmdb.org/t/p/w500/${sortedData[round].backdrop_path}`
+    console.log(sortedData[round].title);
+})
+
+
+// socket.on('movieData', (movieDatas) => {
+//     //source is img path send with websocket to every client
+//     // console.log(sortedData)
+//     img.src =`https://image.tmdb.org/t/p/w500/${movieDatas.img_path}`
+//     console.log(movieDatas.title);
+// })
+
+//scoreboard -> completely wrong................
+socket.on('scoreBoard', (users) =>{
+    users.forEach(user => {
+        const userScore = document.createElement('li');
+        userScore.textContent = `${user.username} = ${user.score} points`
+        console.log(`${user.username} = ${user.score}`);
+        // score.appendChild(userScore);
+    });
 })
 
 //feedback when someone disconnects/leaves game
