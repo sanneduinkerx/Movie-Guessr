@@ -1,6 +1,6 @@
 # Real-Time Web @cmda-minor-web · 2020/21 - Movie Guessr
 
-# Description 📋
+## Description 📋
 For the course Real Time Web, I'm making a Real Time web app, as the name says. I will learn to work with websockets and real time data with multiple users at client side. 
 
 ## Table of Contents
@@ -18,47 +18,38 @@ For the course Real Time Web, I'm making a Real Time web app, as the name says. 
 - [npm Packages 📦](#how-to-install-this-project-%EF%B8%8F)
 - [Sources 📚](#sources-)
 
-## Ultimate Concept - Movie Guessr ✏️
-My idea is to make a Guessing game with movies. So there will be a chat available for the users to guess the movie. And my ultimate goal is that 1 user in the game room can see the movie poster and he/she types a hint, in total 3 hints, and the other users have to guess with the hints which movie it is. The hint can be an actor who plays in the movie, or a popular quote from the movie.
-
-![](https://user-images.githubusercontent.com/60745348/114186180-d548a380-9946-11eb-8cd1-b3b4dd5c6f0b.png)
-
-**Other concepts I had:**
-- User gives emojis instead of hints, as hints so other users can guess the movie
-- Just a scene from a movie or poster cover blurred and everyone guesses which movie it is, no different roles or turns
-- *Completely different:* Shared booklist, everyone can give their review on the book they read, others can read the review
-
-### Final Concept:
+## Concept - Movie Guessr 🍿:
 ![](https://user-images.githubusercontent.com/60745348/116053620-2e207780-a67b-11eb-8c9c-b9853a93baa6.png)
 
-*description here*
+With this real time web app you can play with friends, chat and guess which movie is displayed on the image. You can earn 10 points for every right answer and you can play with as many friends as you want. The first one to guess the movie wins the points!
 
 ### Features 🛠
-- **Chat** function, so all users can guess which movie is described with given hints from 1 user
-- An **API** from IMDB or another api to display movie posters
+- **Chat** function, to chat with the players
+    - **Guess**, within the chat you can guess which movie is displayed
+- A **Movie Scene** from TheMovieDB API to display a movie 
 - **Point system**, to keep track of points earned
+- **(Dis)connected**, See who joins and leaves the game
 
 ### Live Link 🔗
 
-<!-- ![](https://user-images.githubusercontent.com/60745348/116053610-2bbe1d80-a67b-11eb-895a-91dbe54b8ad8.png) -->
-<!-- ![](https://user-images.githubusercontent.com/60745348/116053620-2e207780-a67b-11eb-8c9c-b9853a93baa6.png) -->
+![](https://user-images.githubusercontent.com/60745348/116053610-2bbe1d80-a67b-11eb-895a-91dbe54b8ad8.png)
 
 You can check out the application [here](https://movie-guessr-cmd.herokuapp.com/).
 
-### Wishlist
+### Wishlist ❤️
 
-#### Must have:
-- [X] Chat function with display name
-- [X] Guess correct movie with feedback and then show next poster/scene
-- [X] Loading API data from TheMovieDB, pick random movie poster/scene from api
+#### Must have: 
+- [X] Chat function with display name 
+- [X] Guess correct movie with feedback and then show next poster/scene 
+- [X] Loading API data from TheMovieDB, pick random movie poster/scene from api 
 - [ ] Implement point system 
 
 <!-- ### Must Have Concept: 
 
 ![](https://user-images.githubusercontent.com/60745348/114186198-d974c100-9946-11eb-8d00-c10d029861af.png) -->
 
-#### Should have
-- [ ] button, start again or shuffle movies
+#### Should have 
+- [ ] button, start again or shuffle movies 
 - [ ] show movie poster to ONE user (different roles)
 - [ ] Hints 
 - [ ] Database
@@ -73,10 +64,19 @@ You can check out the application [here](https://movie-guessr-cmd.herokuapp.com/
 - [ ] invite friends
 - [ ] Login
 
-## Data Life Cycle 🔄
+## Original plan 🎥
+My original plan was to have different roles within the game. Like giving turns, one user gets to see the movie poster and has to describe with 3 hints to the other users what movie it is. The hint can be an actor who plays in the movie, or a popular quote from the movie. And then with the hints the other users have to guess in the chat. Therefore i wanted to make rooms and use a database. But given the limited time and because socket.io was new for me. I took a step back and chose for a guessing game where every client sees the same movie, but a backdrop image not the poster, because most of them had titles on it. 
 
-Version 2:
-*Maybe need to be changed*
+![](https://user-images.githubusercontent.com/60745348/114186180-d548a380-9946-11eb-8cd1-b3b4dd5c6f0b.png)
+
+I also had other ideas:
+- User gives emojis instead of hints, as hints so other users can guess the movie
+- Just a scene from a movie or poster cover blurred and everyone guesses which movie it is, no different roles or turns
+- *Completely different:* Shared booklist, everyone can give their review on the book they read, others can read the review
+
+But i chose to go with the Movie Guessr game. 
+
+## Data Life Cycle 🔄
 
 ![](https://user-images.githubusercontent.com/60745348/116053131-9cb10580-a67a-11eb-89bc-824234fac9c6.png)
 
@@ -84,16 +84,19 @@ Version 2:
 version 1:
 ![](https://user-images.githubusercontent.com/60745348/114559308-e148a400-9c6b-11eb-8da2-5780674a3610.png) -->
 
-<!-- **Note**: I will make this a digital version, with colors + functions on the server side to show which functions are used. And later a database if i use one. -->
-
 ### Real Time Events 💬
 Real Time events i used with socket.io are:
 
 - userConnected, to send message that someone connected
+    - *example code here*
 - username, to send username
+    - *example code here*
 - Scoreboard, to send and update scores of users
+    - *example code here*
 - Message, to send and receive messages for all clients.
+    - *example code here*
 - userDisconnected, to send message that someone disconnected.
+    - *example code here*
 
 More will follow while working on this project.
 
@@ -159,6 +162,8 @@ The npm packages i will use in this project:
     A web framework with feature for routing. And supports template engines such as EJS. for more info [click here](https://www.npmjs.com/package/express)
 - Node-fetch: 
     to use fetch(url) to fetch data from API.
+- socket.io
+- dotenv
 
 ## Sources 📚
 Sources I used in this course 
