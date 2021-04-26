@@ -4,11 +4,11 @@
 For the course Real Time Web, I'm making a Real Time web app, as the name says. I will learn to work with websockets and real time data with multiple users at client side. 
 
 ## Table of Contents
-- [Different Concepts ✏️](#concept---movie-guessr-%EF%B8%8F)
-    - [Chosen Concept](#final-concept)
+- [Concept - Movie Guessr 🍿](#concept---movie-guessr-)
     - [Features 🛠](#features-)
     - [Live Link 🔗](#live-link-)
-    - [Wishlist](#wishlist)
+    - [Wishlist ❤️](#wishlist-%EF%B8%8F)
+- [Original plan 🎥](#original-plan-)
 - [Data Life Cycle 🚲](#data-life-cycle-)
     - [Real Time Events 💬](#real-time-events-) 
 - [API 🍿](#api-)
@@ -157,13 +157,15 @@ To get an API key you have to register for an account first. Then in your accoun
 The npm packages i will use in this project:
 
 - For template engine: EJS 
-    To load a template in a certain path you can use res.render('templateName'), and you can give data with it to render server side and serve to client. For example you can give the fetched data from an API to the template, and with <%= data.name %> you can put it in the template and it wil render the right data.
+    To load a template in a certain path you can use res.render('templateName').
 - Express: 
     A web framework with feature for routing. And supports template engines such as EJS. for more info [click here](https://www.npmjs.com/package/express)
 - Node-fetch: 
     to use fetch(url) to fetch data from API.
-- socket.io
-- dotenv
+- socket.io:
+    For real time events with multiple clients.
+- dotenv:
+    To hide sensitive information from github.
 
 ## Sources 📚
 Sources I used in this course 
