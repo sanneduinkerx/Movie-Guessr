@@ -8,15 +8,14 @@ For the course Real Time Web, I'm making a Real Time web app, as the name says. 
     - [Live Link 🔗](#live-link-)
     - [Features 🛠](#features-)
     - [Wishlist](#wishlist)
-    - [Data Life Cycle](#data-life-cycle-)
+- [Data Life Cycle 🚲](#data-life-cycle-)
+    - [Real Time Events 💬](#real-time-events-) 
 - [API 🍿](#api-)
     - [Data Model](#data-model)
     - [How to get api key](#how-to-get-api-Key)
-- [Real Time Events 💬](#real-time-events-)
 - [How to Install ⬇️](#how-to-install-this-project-%EF%B8%8F)
 - [npm Packages 📦](#how-to-install-this-project-%EF%B8%8F)
 - [Sources 📚](#sources-)
-
 
 ## Ultimate Concept - Movie Guessr ✏️
 My idea is to make a Guessing game with movies. So there will be a chat available for the users to guess the movie. And my ultimate goal is that 1 user in the game room can see the movie poster and he/she types a hint, in total 3 hints, and the other users have to guess with the hints which movie it is. The hint can be an actor who plays in the movie, or a popular quote from the movie. Maybe later something with *firebase* to make rooms and all data.
@@ -36,14 +35,13 @@ which is a little challenge for me and i thought that would be interesting. And 
 
 ### Live Link 🔗
 
-*Screenshot of Web App will come here.*
+![](https://user-images.githubusercontent.com/60745348/116053610-2bbe1d80-a67b-11eb-895a-91dbe54b8ad8.png)
+![](https://user-images.githubusercontent.com/60745348/116053620-2e207780-a67b-11eb-8c9c-b9853a93baa6.png)
 
-You can check out the application [here](movie-guessr-cmd.herokuapp.com/).
-
+You can check out the application [here](https://movie-guessr-cmd.herokuapp.com/).
 
 ### Features 🛠
 - **Chat** function, so all users can guess which movie is described with given hints from 1 user
-- **Hints**, 1 user can give 3 hints with input field
 - An **API** from IMDB or another api to display movie posters
 - **Point system**, to keep track of points earned
 
@@ -51,7 +49,7 @@ You can check out the application [here](movie-guessr-cmd.herokuapp.com/).
 
 #### Must have:
 - [X] Chat function with display name
-- [ ] Guess correct movie with feedback and then show next poster/scene
+- [X] Guess correct movie with feedback and then show next poster/scene
 - [X] Loading API data from TheMovieDB, pick random movie poster/scene from api
 - [ ] Implement point system 
 
@@ -59,26 +57,45 @@ You can check out the application [here](movie-guessr-cmd.herokuapp.com/).
 
 ![](https://user-images.githubusercontent.com/60745348/114186198-d974c100-9946-11eb-8d00-c10d029861af.png)
 
-
 #### Should have
 - [ ] show movie poster to ONE user (different roles)
 - [ ] Hints 
-- [ ] Different rooms
 - [ ] Database
 
 #### Would have
-- [ ] I give up, button
+- [ ] Different rooms
+- [ ] I give up, button or skip button
 - [ ] User can choose how many rounds
+
+#### Could have 
+- [ ] All time score board
 - [ ] invite friends
+- [ ] Login
 
+## Data Life Cycle 🔄
 
-### Data Life Cycle 🔄
+Version 2:
+*Maybe need to be changed*
 
-First version:
+![](https://user-images.githubusercontent.com/60745348/116053131-9cb10580-a67a-11eb-89bc-824234fac9c6.png)
 
-![](https://user-images.githubusercontent.com/60745348/114559308-e148a400-9c6b-11eb-8da2-5780674a3610.png)
+<!-- 
+version 1:
+![](https://user-images.githubusercontent.com/60745348/114559308-e148a400-9c6b-11eb-8da2-5780674a3610.png) -->
 
-**Note**: I will make this a digital version, with colors + functions on the server side to show which functions are used. And later a database if i use one.
+<!-- **Note**: I will make this a digital version, with colors + functions on the server side to show which functions are used. And later a database if i use one. -->
+
+### Real Time Events 💬
+Real Time events i used with socket.io are:
+
+- userConnected, to send message that someone connected
+- username, to send username
+- Scoreboard, to send and update scores of users
+- Message, to send and receive messages for all clients.
+- userDisconnected, to send message that someone disconnected.
+
+More will follow while working on this project.
+
 
 ## API 🍿
 The API i use within this project is from [The MovieDB](https://developers.themoviedb.org/3/getting-started/introduction). This API has a wide range of get methodes to get data. You can request methodes from movies, tv shows, tv seasons or people. I chose to get requests from movies. The MovieDB has different GET methodes to use, for example:
@@ -101,15 +118,6 @@ The data looks like this:
 ### How to get API Key
 
 To get an API key you have to register for an account first. Then in your account click API in the left sidebar, then click create and choose for what you are gonna use the API and then you can fill in the form for an API request. After that you can immediately use the API key. 
-
-## Real Time Events 💬
-Real Time events i used with socket.io are:
-
-- Message, to send and receive messages for all clients.
-- Connect, to send message that someone connected
-- Disconnect, to send message that someone disconnected.
-
-More will follow while working on this project.
 
 ## How to install this project ⬇️
 

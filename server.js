@@ -94,7 +94,6 @@ io.on('connection', async (socket) => {
     
     io.emit('movieData', guessMovie);
 
-
      //______ CHAT + GUESS ANSWER ______//
     // message event with chat message a client submitted through form
     socket.on('message', (chatMsg) => {
@@ -128,6 +127,7 @@ io.on('connection', async (socket) => {
             // check if the round is a higher value then the length of array
             if(round >= sortedData.length - 1){
                 round = 0;
+                // hier nog naar kijken!
                 randomSortedMovieData()
                     .then(() => console.log('order being randomized and data fetched'))
                     .catch((err) => console.log(err))
