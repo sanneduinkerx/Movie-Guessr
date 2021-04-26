@@ -41,25 +41,23 @@ You can check out the application [here](https://movie-guessr-cmd.herokuapp.com/
 - [X] Loading API data from TheMovieDB, pick random movie poster/scene from api 
 - [ ] Implement point system 
 
-<!-- ### Must Have Concept: 
-
-![](https://user-images.githubusercontent.com/60745348/114186198-d974c100-9946-11eb-8d00-c10d029861af.png) -->
-
 #### Should have 
-- [ ] button, start again or shuffle movies 
-- [ ] show movie poster to ONE user (different roles)
-- [ ] Hints 
-- [ ] Database
+- [ ] I give up, button to skip a movie
+- [ ] button to reset all and shuffle movies to start again
+- [ ] After someone reaches 500 points or so show who won and start a new game.
+- [ ] fetch a new list of movies after being through all the movies in the array
 
 #### Could have 
+- [ ] show movie poster to ONE user (different roles)
+- [ ] Hints 
+- [ ] Use a database
 - [ ] Different rooms
-- [ ] I give up, button or skip button
-- [ ] User can choose how many rounds
 
 #### Would have
-- [ ] All time score board
 - [ ] invite friends
-- [ ] Login
+- [ ] User can choose how many rounds
+- [ ] User can choose what kind of movies, personalize game
+- [ ] All time score board
 
 ## Original plan 🎥
 My original plan was to have different roles within the game. Like giving turns, one user gets to see the movie poster and has to describe with 3 hints to the other users what movie it is. The hint can be an actor who plays in the movie, or a popular quote from the movie. And then with the hints the other users have to guess in the chat. Therefore i wanted to make rooms and use a database. But given the limited time and because socket.io was new for me. I took a step back and chose for a guessing game where every client sees the same movie, but a backdrop image not the poster, because most of them had titles on it. 

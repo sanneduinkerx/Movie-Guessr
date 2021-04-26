@@ -30,6 +30,8 @@ app.use(router);
 let sortedData;
 
 const randomSortedMovieData = async () => {
+    sortedData = [];
+    
     // API vars to send with fetch
     const endpoint = 'https://api.themoviedb.org/3/movie/top_rated?',
             key = process.env.KEY,
@@ -41,9 +43,7 @@ const randomSortedMovieData = async () => {
     // fetching data from api
     const movieData = await fetchData(url);
 
-    // PICKING RANDOM ORDER of objects 
-    // random order so its not the same order every time someone plays
-    // still search what the .5 for is
+    // randomize order in movieData array
     const sortedMovies = movieData.results.sort(() => .5 - Math.random());
     sortedData = sortedMovies;
     return sortedData;
@@ -54,26 +54,21 @@ randomSortedMovieData()
     .then(() => console.log('order being randomized and data fetched'))
     .catch((err) => console.log(err))
 
-
 //______ WEBSOCKET ______//
 
 let users = [];
 let round = 0;
 
-// when a connection is made with socket.io, the following function gets executed
-// the parameter socket is given with the function
 io.on('connection', async (socket) => {
 
     //______ USER CONNECTED______//
-
-    // give feedback when someone joins
+    // give feedback when someone joins + store user data
     socket.on('userConnected', (userName) => {
 
-        //send event with username to all clients
-        // feedback who joined the game
+        // send connected username to all clients, feedback who joined the game
         io.emit('userConnected', userName);
         
-        // storing user data to acces later for score and when someone disconnects
+        // storing user data in users array to acces later
         users.push({
             username: userName,
             score: 0,
@@ -82,86 +77,96 @@ io.on('connection', async (socket) => {
             id: socket.id
         });
 
+        // send users data to all clients, to show on a 'scoreboard'
         io.emit('scoreBoard', users);
     })
 
      //______ API DATA ______//
     // storing api data in object
+    // later delete title, now i use it to copy paste from console, to test the rounds
     let guessMovie = {
         title: sortedData[round].title,
         img_path: sortedData[round].backdrop_path
     }
     
+    // emit data to all clients
     io.emit('movieData', guessMovie);
 
      //______ CHAT + GUESS ANSWER ______//
     // message event with chat message a client submitted through form
     socket.on('message', (chatMsg) => {
-        //io emit to SEND the message back to all clients that have browser open
-        // send message to all clients
+
+        //send the message from one client back to all clients 
         io.emit('message', chatMsg);
 
          //______ WE HAVE A WINNER  ______//
         //checking if message involves a movie name
-        // need to fix more, .includes, not the entire message?
-        if(chatMsg.msg.toLowerCase() === sortedData[round].title.toLowerCase()){
+        // first message + title all lower case and then see if the message includes a string that matches the title
+        if(chatMsg.msg.toLowerCase().includes(sortedData[round].title.toLowerCase())){
+            // fill user with username who guessed the right answer
             const user = chatMsg.username;
 
             //feedback to all users, someone guessed it right
+            // so change username + message and send that message back to all clients
             chatMsg.username = 'gamehost';
             chatMsg.msg = `${user} guessed the right movie`;
 
+            // send message that a user guessed the right answer
             io.emit('message', chatMsg);
             
             //______ ADD POINTS ______//
+            // check which user it is with socket.id and then add 10 points to the score
             users.forEach(user => {
                 if(user.id == socket.id){
-                    // updating the score in the user array with +10 of the person who got it right
                     user.score = user.score + 10;
                 }
             });
 
+            // send the new points to all clients
             io.emit('scoreBoard', users);
 
              //______ SHOW NEXT MOVIE ______//
             // check if the round is a higher value then the length of array
+            // if so the whole game starts again and order is randomized again
             if(round >= sortedData.length - 1){
                 round = 0;
-                // hier nog naar kijken!
-                randomSortedMovieData()
-                    .then(() => console.log('order being randomized and data fetched'))
-                    .catch((err) => console.log(err))
+                // shuffle data
+                sortedData.sort(() => .5 - Math.random());
             } else {
-                // else add +1 to round
+                // else add +1 to round, show next movie
                 round = round + 1;
             }
 
-            let guessMovie = {
+            // change data with the next object in array, given with round
+            guessMovie = {
                 title: sortedData[round].title,
                 img_path: sortedData[round].backdrop_path
             }        
 
+            // emit next movie img and title (though i can delete the title later)
             io.emit('movieData', guessMovie);
         } 
     })
 
     //______ DISCONNECTED ______//
-    // for example when user disconnects
     socket.on('disconnect', () => {
         let name = '';
 
-        // getting name for feedback later to get to all users
-        // write different
+        // 'user disconnected' feedback to all clients
+        // check if the socket.id matches with user.id in users array, to search who is disconnected
+        // and then delete that user from the array
         users.forEach(user => {
             if(user.id == socket.id){
+
+                // fill name with username
                 name = user.username;
-                // delete user 
+                // delete user from users array
                 users = users.filter(user => user.id != socket.id);
             }
         });
-       
+        
+        // emit name to all clients, to send feedback
         io.emit('disconnected', name)
-
     })
 })
 
