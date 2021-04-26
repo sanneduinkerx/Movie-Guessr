@@ -37,24 +37,23 @@ You can check out the application [here](https://movie-guessr-cmd.herokuapp.com/
 
 #### Must have: 
 - [X] Chat function with display name 
-- [X] Guess correct movie with feedback and then show next poster/scene 
-- [X] Loading API data from TheMovieDB, pick random movie poster/scene from api 
-- [ ] Implement point system 
+- [X] Guess correct movie with feedback
+- [X] Show next poster/scene when answer is correct
+- [X] Loading API data from TheMovieDB
 
-#### Should have 
-- [ ] I give up, button to skip a movie
-- [ ] button to reset all and shuffle movies to start again
-- [ ] After someone reaches 500 points or so show who won and start a new game.
-- [ ] fetch a new list of movies after being through all the movies in the array
+#### Should have
+- [ ] Implement point system 
+- [X] Message when someone connects or disconnects
+- [ ] UI stack, error message
+- [ ] I give up button to skip a movie
 
 #### Could have 
-- [ ] show movie poster to ONE user (different roles)
-- [ ] Hints 
-- [ ] Use a database
+- [ ] After someone reaches 500 points or so, show who won and start a new game
+- [ ] fetch the next page with movies after being through all the movies in the array
 - [ ] Different rooms
 
 #### Would have
-- [ ] invite friends
+- [ ] Use a database
 - [ ] User can choose how many rounds
 - [ ] User can choose what kind of movies, personalize game
 - [ ] All time score board
