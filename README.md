@@ -4,9 +4,10 @@
 For the course Real Time Web, I'm making a Real Time web app, as the name says. I will learn to work with websockets and real time data with multiple users at client side. 
 
 ## Table of Contents
-- [Concept ✏️](#concept---movie-guessr-%EF%B8%8F)
-    - [Live Link 🔗](#live-link-)
+- [Different Concepts ✏️](#concept---movie-guessr-%EF%B8%8F)
+    - [Chosen Concept](#final-concept)
     - [Features 🛠](#features-)
+    - [Live Link 🔗](#live-link-)
     - [Wishlist](#wishlist)
 - [Data Life Cycle 🚲](#data-life-cycle-)
     - [Real Time Events 💬](#real-time-events-) 
@@ -18,9 +19,7 @@ For the course Real Time Web, I'm making a Real Time web app, as the name says. 
 - [Sources 📚](#sources-)
 
 ## Ultimate Concept - Movie Guessr ✏️
-My idea is to make a Guessing game with movies. So there will be a chat available for the users to guess the movie. And my ultimate goal is that 1 user in the game room can see the movie poster and he/she types a hint, in total 3 hints, and the other users have to guess with the hints which movie it is. The hint can be an actor who plays in the movie, or a popular quote from the movie. Maybe later something with *firebase* to make rooms and all data.
-
-A little sketch: 
+My idea is to make a Guessing game with movies. So there will be a chat available for the users to guess the movie. And my ultimate goal is that 1 user in the game room can see the movie poster and he/she types a hint, in total 3 hints, and the other users have to guess with the hints which movie it is. The hint can be an actor who plays in the movie, or a popular quote from the movie.
 
 ![](https://user-images.githubusercontent.com/60745348/114186180-d548a380-9946-11eb-8cd1-b3b4dd5c6f0b.png)
 
@@ -29,21 +28,22 @@ A little sketch:
 - Just a scene from a movie or poster cover blurred and everyone guesses which movie it is, no different roles or turns
 - *Completely different:* Shared booklist, everyone can give their review on the book they read, others can read the review
 
-**Chosen Concept:**
-I chose the *movie Guessr with hints*, because i think it'll be a nice concept to work on, especially the game feature with multiple users. And there are multiple roles within the game 
-which is a little challenge for me and i thought that would be interesting. And because i'm a fan of movies, and know where most actors play in or famous phrases, i thought the hints would be nice as a feature.
-
-### Live Link 🔗
-
-![](https://user-images.githubusercontent.com/60745348/116053610-2bbe1d80-a67b-11eb-895a-91dbe54b8ad8.png)
+### Final Concept:
 ![](https://user-images.githubusercontent.com/60745348/116053620-2e207780-a67b-11eb-8c9c-b9853a93baa6.png)
 
-You can check out the application [here](https://movie-guessr-cmd.herokuapp.com/).
+*description here*
 
 ### Features 🛠
 - **Chat** function, so all users can guess which movie is described with given hints from 1 user
 - An **API** from IMDB or another api to display movie posters
 - **Point system**, to keep track of points earned
+
+### Live Link 🔗
+
+<!-- ![](https://user-images.githubusercontent.com/60745348/116053610-2bbe1d80-a67b-11eb-895a-91dbe54b8ad8.png) -->
+<!-- ![](https://user-images.githubusercontent.com/60745348/116053620-2e207780-a67b-11eb-8c9c-b9853a93baa6.png) -->
+
+You can check out the application [here](https://movie-guessr-cmd.herokuapp.com/).
 
 ### Wishlist
 
@@ -53,11 +53,12 @@ You can check out the application [here](https://movie-guessr-cmd.herokuapp.com/
 - [X] Loading API data from TheMovieDB, pick random movie poster/scene from api
 - [ ] Implement point system 
 
-### Must Have Concept: 
+<!-- ### Must Have Concept: 
 
-![](https://user-images.githubusercontent.com/60745348/114186198-d974c100-9946-11eb-8d00-c10d029861af.png)
+![](https://user-images.githubusercontent.com/60745348/114186198-d974c100-9946-11eb-8d00-c10d029861af.png) -->
 
 #### Should have
+- [ ] button, start again or shuffle movies
 - [ ] show movie poster to ONE user (different roles)
 - [ ] Hints 
 - [ ] Database
