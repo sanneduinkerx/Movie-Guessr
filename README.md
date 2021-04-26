@@ -51,12 +51,12 @@ You can check out the application [here](https://movie-guessr-cmd.herokuapp.com/
 - [ ] Hints 
 - [ ] Database
 
-#### Would have
+#### Could have 
 - [ ] Different rooms
 - [ ] I give up, button or skip button
 - [ ] User can choose how many rounds
 
-#### Could have 
+#### Would have
 - [ ] All time score board
 - [ ] invite friends
 - [ ] Login
