@@ -1,8 +1,5 @@
 # Real-Time Web @cmda-minor-web · 2020/21 - Movie Guessr
 
-## Description 📋
-For the course Real Time Web, I'm making a Real Time web app, as the name says. I will learn to work with websockets and real time data with multiple users at client side. 
-
 ## Table of Contents
 - [Concept - Movie Guessr 🍿](#concept---movie-guessr-)
     - [Features 🛠](#features-)
