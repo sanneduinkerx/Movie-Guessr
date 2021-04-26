@@ -50,10 +50,10 @@ You can check out the application [here](https://movie-guessr-cmd.herokuapp.com/
 #### Could have 
 - [ ] After someone reaches 500 points or so, show who won and start a new game
 - [ ] fetch the next page with movies after being through all the movies in the array
+- [ ] Use a database
 - [ ] Different rooms
 
 #### Would have
-- [ ] Use a database
 - [ ] User can choose how many rounds
 - [ ] User can choose what kind of movies, personalize game
 - [ ] All time score board
