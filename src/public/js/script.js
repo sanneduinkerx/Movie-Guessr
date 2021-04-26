@@ -33,13 +33,14 @@ formChat.addEventListener('submit', (e) => {
 // send typed in username to server
 socket.emit('userConnected', username);
 
+// feedback which users are joining
 socket.on('userConnected', (username) => {
-
     const userConnected = document.createElement('p');
     userConnected.textContent = `${username} has joined the game`;
     messages.appendChild(userConnected);
 })
 
+// render messages in html
 socket.on('message', ({ msg, username }) => {
 
     const chatBlock = document.createElement('li');
@@ -56,21 +57,13 @@ socket.on('message', ({ msg, username }) => {
     messages.scrollTop = messages.scrollHeight;
 })
 
-// listens for data event then executes function 
+//shows an image from the send data
 socket.on('movieData', (guessMovie) => {
     //source is img path send with websocket to every client
     console.log(guessMovie)
     img.src =`https://image.tmdb.org/t/p/w500/${guessMovie.img_path}`
     console.log(guessMovie.title);
 })
-
-
-// socket.on('movieData', (movieDatas) => {
-//     //source is img path send with websocket to every client
-//     // console.log(sortedData)
-//     img.src =`https://image.tmdb.org/t/p/w500/${movieDatas.img_path}`
-//     console.log(movieDatas.title);
-// })
 
 //scoreboard -> completely wrong................
 socket.on('scoreBoard', (users) =>{

@@ -30,8 +30,6 @@ app.use(router);
 let sortedData;
 
 const randomSortedMovieData = async () => {
-    sortedData = [];
-    
     // API vars to send with fetch
     const endpoint = 'https://api.themoviedb.org/3/movie/top_rated?',
             key = process.env.KEY,
@@ -157,7 +155,6 @@ io.on('connection', async (socket) => {
         // and then delete that user from the array
         users.forEach(user => {
             if(user.id == socket.id){
-
                 // fill name with username
                 name = user.username;
                 // delete user from users array
