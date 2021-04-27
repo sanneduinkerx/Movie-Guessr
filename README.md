@@ -44,7 +44,7 @@ You can check out the application [here](https://movie-guessr-cmd.herokuapp.com/
 #### Should have
 - [ ] Implement point system 
 - [X] Message when someone connects or disconnects
-- [ ] UI stack, error message
+- [ ] UI stack, error message + loading state
 - [ ] I give up button to skip a movie
 
 #### Could have 

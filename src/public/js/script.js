@@ -9,6 +9,7 @@ const img = document.getElementById('moviePoster');
 const score = document.getElementById('score');
 
 // getting query from url, the display name
+// help from Victor with this
 const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get('name');
 
@@ -18,9 +19,7 @@ formChat.addEventListener('submit', (e) => {
     
         //if the input has a value, so if the user types and sends a message then execute function
         if(input.value){
-            //emit: uitsturen
-            // event named message and give the input.value with it that the user from client side submits
-            // giving message plus display name send to server
+            // giving message plus display name and send with emit to server
             socket.emit('message', {
               username,
               msg: input.value
@@ -30,9 +29,10 @@ formChat.addEventListener('submit', (e) => {
         }
 })
 
-// send typed in username to server
+// send typed in username to save in an array
 socket.emit('userConnected', username);
 
+ //______ USER CONNECTED ______//
 // feedback which users are joining
 socket.on('userConnected', (username) => {
     const userConnected = document.createElement('p');
@@ -40,6 +40,7 @@ socket.on('userConnected', (username) => {
     messages.appendChild(userConnected);
 })
 
+ //______ CHAT MESSAGE ______//
 // render messages in html
 socket.on('message', ({ msg, username }) => {
 
@@ -57,24 +58,28 @@ socket.on('message', ({ msg, username }) => {
     messages.scrollTop = messages.scrollHeight;
 })
 
+ //______ DISPLAY MOVIE ______//
 //shows an image from the send data
 socket.on('movieData', (guessMovie) => {
-    //source is img path send with websocket to every client
-    console.log(guessMovie)
+    //source is img path send with socket to every client
     img.src =`https://image.tmdb.org/t/p/w500/${guessMovie.img_path}`
     console.log(guessMovie.title);
 })
 
-//scoreboard -> completely wrong................
-socket.on('scoreBoard', (users) =>{
-    users.forEach(user => {
-        const userScore = document.createElement('li');
-        userScore.textContent = `${user.username} = ${user.score} points`
-        console.log(`${user.username} = ${user.score}`);
-        // score.appendChild(userScore);
-    });
-})
+ //______ SCOREBOARD ______//
+socket.on('scoreBoard', ({username, users}) =>{
 
+    console.log(username)
+
+    users.forEach(user => {
+            const userScore = document.createElement('li');
+            userScore.textContent = `${user.username} = ${user.score} points`
+            console.log(`${user.username} = ${user.score}`);
+            score.appendChild(userScore);
+    })
+});
+
+ //______ USER DISCONNECTED ______//
 //feedback when someone disconnects/leaves game
 socket.on('disconnected', (name) => {
         const userDisconnect = document.createElement('p');

@@ -75,8 +75,11 @@ io.on('connection', async (socket) => {
             id: socket.id
         });
 
-        // send users data to all clients, to show on a 'scoreboard'
-        io.emit('scoreBoard', users);
+         // send connected username to all clients, feedback who joined the game
+         io.emit('scoreBoard', {username: userName, users});
+
+        // // send users data to all clients, to show on a 'scoreboard'
+        // socket.emit('userConnected', users); 
     })
 
      //______ API DATA ______//
@@ -109,11 +112,11 @@ io.on('connection', async (socket) => {
             chatMsg.username = 'gamehost';
             chatMsg.msg = `${user} guessed the right movie`;
 
-            // send message that a user guessed the right answer
+            // send message that all clients, user guessed the right answer
             io.emit('message', chatMsg);
             
             //______ ADD POINTS ______//
-            // check which user it is with socket.id and then add 10 points to the score
+            // check which user it is with socket.id and then add 10 points to the score in the array users
             users.forEach(user => {
                 if(user.id == socket.id){
                     user.score = user.score + 10;
@@ -121,7 +124,7 @@ io.on('connection', async (socket) => {
             });
 
             // send the new points to all clients
-            io.emit('scoreBoard', users);
+            io.emit('scoreBoard', {username: user, users});
 
              //______ SHOW NEXT MOVIE ______//
             // check if the round is a higher value then the length of array
