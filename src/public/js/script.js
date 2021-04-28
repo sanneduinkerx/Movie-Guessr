@@ -9,7 +9,7 @@ const img = document.getElementById('moviePoster');
 const scoreEl = document.getElementById('score');
 
 // getting query from url, the display name
-// help from Victor with this
+// help from Victor with the url params
 const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get('name');
 
@@ -71,7 +71,7 @@ socket.on('scoreBoard', (users) =>{
     // and so that it doesn't pile up
     scoreEl.innerHTML = '';
 
-    //for eacht user make list item with the username and score
+    //for each user make list item with the username and score
     users.forEach(user => {
             const userScore = document.createElement('li');
             userScore.textContent = `${user.username} = ${user.score} points`

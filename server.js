@@ -1,7 +1,6 @@
 // require dotenv
 require('dotenv').config();
 
-// source: https://github.com/ju5tu5/barebonechat, followed lecture example 
 const express = require('express');
 const app = express();
 
@@ -13,8 +12,8 @@ const fetchData = require('./src/utils/fetchData.js');
 
 // http server on web, listens to port, express linked to port with data
 //process listens to port with data from app
-const http = require('http').createServer(app);  // read into http
-const io = require('socket.io')(http); // read into (http)
+const http = require('http').createServer(app); 
+const io = require('socket.io')(http); 
 const port = process.env.PORT || 7070; 
 
 //looks in public folder for static files
@@ -26,11 +25,11 @@ app.use(router);
 
 //______ FETCH DATA  + sort order ______//
 
-// var to fill with random sorted order data object
+// fill with random sorted order data object
 let sortedData;
 
 const randomSortedMovieData = async () => {
-    // API vars to send with fetch
+    // API parameters to send with fetch
     const endpoint = 'https://api.themoviedb.org/3/movie/top_rated?',
             key = process.env.KEY,
             language = 'en-US',
@@ -77,7 +76,6 @@ io.on('connection', async (socket) => {
         
          // send users to clients to fill scoreboard
          io.emit('scoreBoard', (users));
-
     })
 
      //______ API DATA ______//
@@ -104,7 +102,7 @@ io.on('connection', async (socket) => {
             const user = chatMsg.username;
 
             //feedback to all users, someone guessed it right
-            // so change username + message and send that message back to all clients
+            // so change username + message
             chatMsg.username = 'gamehost';
             chatMsg.msg = `${user} guessed the right movie`;
 
@@ -123,7 +121,7 @@ io.on('connection', async (socket) => {
             io.emit('scoreBoard', (users));
 
              //______ SHOW NEXT MOVIE ______//
-            // check if the round is a higher value then the length of array
+            // check if the round is an higher value then the length of array
             // if so the whole game starts again and order is randomized again
             if(round >= sortedData.length - 1){
                 round = 0;
@@ -134,12 +132,11 @@ io.on('connection', async (socket) => {
                 round = round + 1;
             }
 
-            // change data with the next object in array, given with round
             guessMovie = {
                 img_path: sortedData[round].backdrop_path
             }        
 
-            // emit next movie img and title (though i can delete the title later)
+            // emit next movie img
             io.emit('movieData', guessMovie);
         } 
     })
@@ -148,7 +145,6 @@ io.on('connection', async (socket) => {
     socket.on('disconnect', () => {
         let name = '';
 
-        // 'user disconnected' feedback to all clients
         // check if the socket.id matches with user.id in users array, to search who is disconnected
         // and then delete that user from the array
         users.forEach(user => {
@@ -160,10 +156,10 @@ io.on('connection', async (socket) => {
             }
         });
         
-        // emit name to all clients, to send feedback
+        // emit name to all clients, to send feedback who left
         io.emit('disconnected', name)
 
-        // update scoreboard, erase the one who left
+        // update scoreboard, erases the one who left from board
         io.emit('scoreBoard', (users));
 
     })
