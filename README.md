@@ -16,7 +16,7 @@
 - [Sources 📚](#sources-)
 
 ## Concept - Movie Guessr 🍿:
-![](https://user-images.githubusercontent.com/60745348/116390234-1fbe9100-a81e-11eb-84bd-b94251b3cbd3.png)
+![](https://user-images.githubusercontent.com/60745348/116391627-b3dd2800-a81f-11eb-8704-025220ce0653.png)
 
 With this real time web app you can play with friends, chat and guess which movie is displayed on the image. You can earn 10 points for every right answer and you can play with as many friends as you want. The first one to guess the movie wins the points!
 
