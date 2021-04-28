@@ -9,7 +9,7 @@
 - [Data Life Cycle 🚲](#data-life-cycle-)
     - [Real Time Events 💬](#real-time-events-) 
 - [API 🍿](#api-)
-    - [Data Model](#data-model)
+    - [Api Data Example](#api-data-example)
     - [How to get api key](#how-to-get-api-Key)
 - [How to Install ⬇️](#how-to-install-this-project-%EF%B8%8F)
 - [npm Packages 📦](#how-to-install-this-project-%EF%B8%8F)
@@ -220,7 +220,7 @@ I will be using the Get Top Rated methode. To see how the url and data can be us
 
 <img width="1000" alt="Screenshot 2021-04-18 at 13 34 40" src="https://user-images.githubusercontent.com/60745348/115144222-cbf8be80-a04b-11eb-9dd2-c0efb5df3e6c.png">
 
-### Data Model 
+### Api Data Example 
 The data looks like this:
 
 <img width="1000" alt="Screenshot 2021-04-18 at 13 37 53" src="https://user-images.githubusercontent.com/60745348/115144223-cdc28200-a04b-11eb-947d-7cb794a2095e.png">
