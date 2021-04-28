@@ -123,21 +123,17 @@ formChat.addEventListener('submit', (e) => {
 
 `
 socket.on('message', (chatMsg) => {
-    
-    // emit message to all clients
+// emit message to all clients
+io.emit('message', chatMsg);
+
+// check answer in chat message
+if(chatMsg.msg.toLowerCase().includes(sortedData[round].title.toLowerCase())){
+    //feedback to all users, someone guessed it right
+    chatMsg.username = 'gamehost';
+    chatMsg.msg = `${user} guessed the right movie`;
+    // send message that all clients, user guessed the right answer
     io.emit('message', chatMsg);
-
-    // check answer in chat message
-    if(chatMsg.msg.toLowerCase().includes(sortedData[round].title.toLowerCase())){
-        //feedback to all users, someone guessed it right
-        // so change username + message and send that message back to all clients
-        chatMsg.username = 'gamehost';
-        chatMsg.msg = `${user} guessed the right movie`;
-
-        // send message that all clients, user guessed the right answer
-        io.emit('message', chatMsg);
-    }
-
+}
 }
 `
 
