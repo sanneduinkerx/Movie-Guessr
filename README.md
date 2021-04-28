@@ -109,13 +109,13 @@ socket.on('userConnected', (userName) => {
 
 ```
 formChat.addEventListener('submit', (e) => {
-if(input.value){
-// giving message plus display name and send with emit to server
-socket.emit('message', {
-    username,
-    msg: input.value
-});
-}
+    if(input.value){
+        // giving message plus display name and send with emit to server
+        socket.emit('message', {
+            username,
+            msg: input.value
+        });
+    }
 })
 ```
 
@@ -126,19 +126,20 @@ socket.on('message', (chatMsg) => {
 // emit message to all clients
 io.emit('message', chatMsg);
 
-// check answer in chat message
-if(chatMsg.msg.toLowerCase().includes(sortedData[round].title.toLowerCase())){
-    //feedback to all users, someone guessed it right
-    chatMsg.username = 'gamehost';
-    chatMsg.msg = `${user} guessed the right movie`;
-    // send message that all clients, user guessed the right answer
-    io.emit('message', chatMsg);
-}
+    // check answer in chat message
+    if(chatMsg.msg.toLowerCase().includes(sortedData[round].title.toLowerCase())){
+        //feedback to all users, someone guessed it right
+        chatMsg.username = 'gamehost';
+        chatMsg.msg = `${user} guessed the right movie`;
+        // send message that all clients, user guessed the right answer
+        io.emit('message', chatMsg);
+    }
 }
 ```
 
 ### Scoreboard, to send and update scores of users
     - *example code here*
+    - not yet finished, and i don't know if it will
 
 ### userDisconnected, to send message to all, when someone disconnected.
 **Server**
