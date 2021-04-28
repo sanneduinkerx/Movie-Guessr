@@ -221,9 +221,9 @@ section:first-of-type img{
 .score{
     background-color: rgb(197 99 63);
     position: absolute;
-    bottom: 1em;
-    left: 1em;
-    border-radius: 10px;
+    bottom: 0em;
+    left: 0em;
+    border-radius: 0px 10px 0px 0px;
 }
 
 #score{
