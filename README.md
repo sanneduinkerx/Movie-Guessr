@@ -48,10 +48,10 @@ You can check out the application [here](https://movie-guessr-cmd.herokuapp.com/
 - [ ] I give up button to skip a movie
 
 #### Could have 
+- [ ] Different rooms
 - [ ] After someone reaches 500 points or so, show who won and start a new game
 - [ ] fetch the next page with movies after being through all the movies in the array
 - [ ] Use a database
-- [ ] Different rooms
 
 #### Would have
 - [ ] User can choose how many rounds

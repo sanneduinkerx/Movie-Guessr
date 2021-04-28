@@ -226,13 +226,12 @@ section:first-of-type img{
 }
 
 #score{
-    width: 200px;
+    width: 250px;
     list-style-type: none;
-    padding: 1em;
-
+    padding: 0em;
+    height: 100px;
+    overflow-y: scroll;
 }
-
-
 
 /**************************************/
 /*----------- RESPONSIVE ------------*/

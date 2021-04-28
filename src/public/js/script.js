@@ -70,7 +70,10 @@ socket.on('scoreBoard', (users) =>{
     // empty the scoreboard to put all the new users in, 
     // and so that it doesn't pile up
     scoreEl.innerHTML = '';
+    console.log(users.length)
 
+    const h2 = document.querySelector('.score h2')
+    h2.innerHTML = `Scoreboard (${users.length})`
     //for each user make list item with the username and score
     users.forEach(user => {
             const userScore = document.createElement('li');
