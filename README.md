@@ -138,8 +138,35 @@ io.emit('message', chatMsg);
 ```
 
 ### Scoreboard, to send and update scores of users
-    - *example code here*
-    - not yet finished, and i don't know if it will
+**Server**
+
+```
+ users {
+            username: userName,
+            score: 0,
+            id: socket.id
+        }
+
+    // send users to clients to fill scoreboard
+    io.emit('scoreBoard', (users));
+```
+
+**Client**
+
+```
+socket.on('scoreBoard', (users) =>{
+    // empty the scoreboard to put all the new users in, 
+    // and so that it doesn't pile up
+    scoreEl.innerHTML = '';
+
+    //for eacht user make list item with the username and score
+    users.forEach(user => {
+            const userScore = document.createElement('li');
+            userScore.textContent = `${user.username} = ${user.score} points`
+            score.appendChild(userScore);
+    })
+});
+```
 
 ### userDisconnected, to send message to all, when someone disconnected.
 **Server**

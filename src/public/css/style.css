@@ -218,15 +218,19 @@ section:first-of-type img{
 /****** score ******/
 /*******************/
 
-#score{
+.score{
     background-color: rgb(197 99 63);
     position: absolute;
-    bottom: 0;
+    bottom: 1em;
     left: 1em;
+    border-radius: 10px;
+}
+
+#score{
     width: 200px;
     list-style-type: none;
     padding: 1em;
-    border-radius: 10px;
+
 }
 
 

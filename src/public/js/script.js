@@ -63,21 +63,18 @@ socket.on('message', ({ msg, username }) => {
 socket.on('movieData', (guessMovie) => {
     //source is img path send with socket to every client
     img.src =`https://image.tmdb.org/t/p/w500/${guessMovie.img_path}`
-    console.log(guessMovie.title);
 })
 
  //______ SCOREBOARD ______//
-socket.on('scoreBoard', ({username, users}) =>{
+socket.on('scoreBoard', (users) =>{
+    // empty the scoreboard to put all the new users in, 
+    // and so that it doesn't pile up
     scoreEl.innerHTML = '';
-    
-    console.log(username)
-    console.log(users)
-    console.log(socket.id)
 
+    //for eacht user make list item with the username and score
     users.forEach(user => {
             const userScore = document.createElement('li');
             userScore.textContent = `${user.username} = ${user.score} points`
-            console.log(`${user.username} = ${user.score}`);
             score.appendChild(userScore);
     })
 });

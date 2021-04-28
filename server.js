@@ -76,14 +76,13 @@ io.on('connection', async (socket) => {
         });
         
          // send users to clients to fill scoreboard
-         io.emit('scoreBoard', {username: userName, users});
+         io.emit('scoreBoard', (users));
+
     })
 
      //______ API DATA ______//
     // storing api data in object
-    // later delete title, now i use it to copy paste from console, to test the rounds
     let guessMovie = {
-        title: sortedData[round].title,
         img_path: sortedData[round].backdrop_path
     }
     
@@ -121,14 +120,14 @@ io.on('connection', async (socket) => {
             });
 
             // send the new points to all clients
-            io.emit('scoreBoard', {username: user, users});
+            io.emit('scoreBoard', (users));
 
              //______ SHOW NEXT MOVIE ______//
             // check if the round is a higher value then the length of array
             // if so the whole game starts again and order is randomized again
             if(round >= sortedData.length - 1){
                 round = 0;
-                // shuffle data
+                // shuffle data again
                 sortedData.sort(() => .5 - Math.random());
             } else {
                 // else add +1 to round, show next movie
@@ -137,7 +136,6 @@ io.on('connection', async (socket) => {
 
             // change data with the next object in array, given with round
             guessMovie = {
-                title: sortedData[round].title,
                 img_path: sortedData[round].backdrop_path
             }        
 
@@ -164,6 +162,10 @@ io.on('connection', async (socket) => {
         
         // emit name to all clients, to send feedback
         io.emit('disconnected', name)
+
+        // update scoreboard, erase the one who left
+        io.emit('scoreBoard', (users));
+
     })
 })
 
