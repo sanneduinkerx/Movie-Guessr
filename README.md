@@ -59,7 +59,7 @@ You can check out the application [here](https://movie-guessr-cmd.herokuapp.com/
 - [ ] All time score board
 
 ## Original plan 🎥
-My original plan was to have different roles within the game. Like giving turns, one user gets to see the movie poster and has to describe with 3 hints to the other users what movie it is. The hint can be an actor who plays in the movie, or a popular quote from the movie. And then with the hints the other users have to guess in the chat. Therefore i wanted to make rooms and use a database. But given the limited time and because socket.io was new for me. I took a step back and chose for a guessing game where every client sees the same movie, but a backdrop image not the poster, because most of them had titles on it. 
+My original plan was to have different roles within the game. Like giving turns, one user gets to see the movie poster and has to describe with 3 hints to the other users what movie it is. The hint can be an actor who plays in the movie, or a popular quote from the movie. And then with the hints the other users have to guess in the chat. Therefore i wanted to make rooms and use a database. But given the limited time and because socket.io was new for me, I took a step back and chose for a guessing game where every client sees the same movie, but a backdrop image not the poster, because most of them had titles on it. 
 
 ![](https://user-images.githubusercontent.com/60745348/114186180-d548a380-9946-11eb-8cd1-b3b4dd5c6f0b.png)
 
@@ -71,8 +71,9 @@ I also had other ideas:
 But i chose to go with the Movie Guessr game. 
 
 ## Data Life Cycle 🔄
+![](https://user-images.githubusercontent.com/60745348/116379788-a457e200-a813-11eb-9363-2d06dcc9ea69.png)
 
-![](https://user-images.githubusercontent.com/60745348/116053131-9cb10580-a67a-11eb-89bc-824234fac9c6.png)
+<!-- ![](https://user-images.githubusercontent.com/60745348/116053131-9cb10580-a67a-11eb-89bc-824234fac9c6.png) -->
 
 ## Real Time Events 💬
 Real Time events i used with socket.io are:
@@ -191,7 +192,6 @@ socket.on('disconnected', (name) => {
 
 ```
 let guessMovie = {
-        title: sortedData[round].title,
         img_path: sortedData[round].backdrop_path
     }
     
