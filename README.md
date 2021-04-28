@@ -88,7 +88,7 @@ Real Time events i used with socket.io are:
 
 **Server**
 
-`
+```
 socket.on('userConnected', (userName) => {
 
     // send connected username to all clients, feedback who joined the game
@@ -102,26 +102,26 @@ socket.on('userConnected', (userName) => {
         id: socket.id
     });
 })
-`
+```
 
 ### Message to send and receive messages for all clients.
 **Client**
 
-`
+```
 formChat.addEventListener('submit', (e) => {
-    if(input.value){
-        // giving message plus display name and send with emit to server
-        socket.emit('message', {
-            username,
-            msg: input.value
-        });
-    }
+if(input.value){
+// giving message plus display name and send with emit to server
+socket.emit('message', {
+    username,
+    msg: input.value
+});
+}
 })
-`
+```
 
 **Server**
 
-`
+```
 socket.on('message', (chatMsg) => {
 // emit message to all clients
 io.emit('message', chatMsg);
@@ -135,7 +135,7 @@ if(chatMsg.msg.toLowerCase().includes(sortedData[round].title.toLowerCase())){
     io.emit('message', chatMsg);
 }
 }
-`
+```
 
 ### Scoreboard, to send and update scores of users
     - *example code here*
@@ -143,45 +143,45 @@ if(chatMsg.msg.toLowerCase().includes(sortedData[round].title.toLowerCase())){
 ### userDisconnected, to send message to all, when someone disconnected.
 **Server**
 
-`
+```
 socket.on('disconnect', () => {
         let name = '';
         ...
         io.emit('disconnected', name)
 })
-`
+```
 
 **Client**
 
-`
+```
 socket.on('disconnected', (name) => {
         const userDisconnect = document.createElement('p');
         userDisconnect.textContent = '${name} has left the game';
         messages.appendChild(userDisconnect);
 })
-`
+```
 
 ### movieData, sending api image from TheMovieDB to all clients
 
 **Server**
 
-` 
+```
 let guessMovie = {
         title: sortedData[round].title,
         img_path: sortedData[round].backdrop_path
     }
     
     io.emit('movieData', guessMovie);
-`
+```
 
 
 **Client**
 
-`
+```
 socket.on('movieData', (guessMovie) => {
     img.src ='https://image.tmdb.org/t/p/w500/${guessMovie.img_path}'
 })
-`
+```
 
 ## API 🍿
 The API i use within this project is from [The MovieDB](https://developers.themoviedb.org/3/getting-started/introduction). This API has a wide range of get methodes to get data. You can request methodes from movies, tv shows, tv seasons or people. I chose to get requests from movies. The MovieDB has different GET methodes to use, for example:
