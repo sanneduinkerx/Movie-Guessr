@@ -16,7 +16,7 @@
 - [Sources 📚](#sources-)
 
 ## Concept - Movie Guessr 🍿:
-![](https://user-images.githubusercontent.com/60745348/116053620-2e207780-a67b-11eb-8c9c-b9853a93baa6.png)
+![](https://user-images.githubusercontent.com/60745348/116361820-b03aa880-a801-11eb-9456-060a0ba71f2b.png)
 
 With this real time web app you can play with friends, chat and guess which movie is displayed on the image. You can earn 10 points for every right answer and you can play with as many friends as you want. The first one to guess the movie wins the points!
 
@@ -73,10 +73,6 @@ But i chose to go with the Movie Guessr game.
 ## Data Life Cycle 🔄
 
 ![](https://user-images.githubusercontent.com/60745348/116053131-9cb10580-a67a-11eb-89bc-824234fac9c6.png)
-
-<!-- 
-version 1:
-![](https://user-images.githubusercontent.com/60745348/114559308-e148a400-9c6b-11eb-8da2-5780674a3610.png) -->
 
 ## Real Time Events 💬
 Real Time events i used with socket.io are:
