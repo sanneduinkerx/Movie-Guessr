@@ -74,12 +74,9 @@ io.on('connection', async (socket) => {
             // so i know which users are which
             id: socket.id
         });
-
-         // send connected username to all clients, feedback who joined the game
+        
+         // send users to clients to fill scoreboard
          io.emit('scoreBoard', {username: userName, users});
-
-        // // send users data to all clients, to show on a 'scoreboard'
-        // socket.emit('userConnected', users); 
     })
 
      //______ API DATA ______//

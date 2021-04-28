@@ -6,7 +6,7 @@ const messages = document.querySelector('section:nth-of-type(2) ul');
 const input = document.querySelector('section:nth-of-type(2) form input')
 const formChat = document.getElementById('chat');
 const img = document.getElementById('moviePoster');
-const score = document.getElementById('score');
+const scoreEl = document.getElementById('score');
 
 // getting query from url, the display name
 // help from Victor with this
@@ -58,7 +58,7 @@ socket.on('message', ({ msg, username }) => {
     messages.scrollTop = messages.scrollHeight;
 })
 
- //______ DISPLAY MOVIE ______//
+//______ DISPLAY MOVIE ______//
 //shows an image from the send data
 socket.on('movieData', (guessMovie) => {
     //source is img path send with socket to every client
@@ -68,8 +68,11 @@ socket.on('movieData', (guessMovie) => {
 
  //______ SCOREBOARD ______//
 socket.on('scoreBoard', ({username, users}) =>{
-
+    scoreEl.innerHTML = '';
+    
     console.log(username)
+    console.log(users)
+    console.log(socket.id)
 
     users.forEach(user => {
             const userScore = document.createElement('li');

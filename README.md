@@ -42,7 +42,7 @@ You can check out the application [here](https://movie-guessr-cmd.herokuapp.com/
 - [X] Loading API data from TheMovieDB
 
 #### Should have
-- [ ] Implement point system 
+- [X] Implement point system 
 - [X] Message when someone connects or disconnects
 - [ ] UI stack, error message + loading state
 - [ ] I give up button to skip a movie
