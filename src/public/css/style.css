@@ -4,6 +4,7 @@ body {
     color: white;
     hyphens: auto;
     font-family: 'Fira Mono', monospace;
+    position: relative;
 }
 
 h1{
@@ -256,18 +257,60 @@ section:first-of-type img{
     }
 
     h2{
-        font-size: 20px;
+        font-size: 16px;
+    }
+
+    p{
+        font-size: 14px;
     }
 
     .game main section:nth-of-type(2){
-        height: 44vh;
-        border-radius: 10px 10px 0px 10px;
+        height: 46vh;
+        border-radius: 0px;
         position: relative;
     }
 
     .game main section:nth-of-type(2) ul {
-        padding: 1em;
+        padding: .5em;
         height: 20vh;
         overflow-y: scroll;
+    }
+
+    .score h2{
+        margin: .5em;
+        /* font-size: 16px; */
+    }
+
+    .score{
+        background-color: rgb(197 99 63);
+        position: absolute;
+        bottom: 0em;
+        left: 0em;
+        right: 0em;
+        border-radius: 10px 10px 0px 0px;
+        display: flex;
+        align-items: center;
+        justify-items: center;
+    }
+    
+    .game #score{
+        list-style-type: none;
+        padding: 0em;
+        height: 22px;
+        overflow-x: scroll;
+        display: flex;
+        width: 100%;
+        /* source: https://stackoverflow.com/questions/6513793/cannot-get-horizontally-listed-ul-to-overflow-horizontally-and-scroll*/
+        white-space: nowrap;
+    }
+
+
+    #score li{
+        padding: 0;
+        margin: .2em;
+    }
+
+    #score li:not(:last-of-type):after{
+        content: ' - '
     }
 }
